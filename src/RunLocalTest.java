@@ -99,7 +99,7 @@ public class RunLocalTest {
 
             // Runs the program with the input values
             receiveInput(input);
-            RoyalsAndJewels.main();
+            src.RoyalsAndJewels.main(new String[0]);
 
             // Retrieves the output from the program
             String output = getOutput();
