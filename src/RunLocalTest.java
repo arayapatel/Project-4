@@ -8,6 +8,7 @@ import org.junit.rules.Timeout;
 import org.junit.runner.JUnitCore;
 import org.junit.runner.Result;
 import org.junit.runner.notification.Failure;
+import src.RoyalsAndJewels;
 
 import javax.swing.*;
 import java.io.*;
