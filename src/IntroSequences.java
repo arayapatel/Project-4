@@ -2,6 +2,6 @@ public class IntroSequences {
   
   // Format: 
   //  username, password, buyer
-  //  username, password, seller
+  //  username, password, seller, store
   
 }
