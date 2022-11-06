@@ -5,7 +5,7 @@ public class ConversationReaderWriter {
     private String myUser;
     public String recievingUser;
     private String recievingStore;
-    private ArrayList<String> messages;
+    private String[] messages;
 
 
     public ConversationReaderWriter(String myUser, String recievingUser, String recievingStore) {
@@ -15,7 +15,7 @@ public class ConversationReaderWriter {
         messages = readMessages();
     }
 
-    public ArrayList<String> readMessages() {
+    public String[] readMessages() {
         try {
             BufferedReader br = new BufferedReader(new FileReader(new File(myUser)));
             String line = br.readLine();
@@ -29,23 +29,28 @@ public class ConversationReaderWriter {
                 System.out.println(line);
                 line = br.readLine();
             }
-            return messageLines;
+
+            for (int i = 0; i < messageLines.size(); i++) {
+                String[] oneLine = messageLines.get(i).split(", ");
+                if (oneLine[0].equals(recievingUser) && oneLine[1].equals(recievingStore)) {
+                    return oneLine;
+                }
+            }
+            return null;
         } catch (Exception e) {
-            e.printStackTrace();
-            System.out.println("failed");
             return null;
         }
     }
 
-    public ArrayList<String> getMessages() {
+    public String[] getMessages() {
         return messages;
     }
 
     public static void main(String[] args) {
         ConversationReaderWriter c1 = new ConversationReaderWriter("SampleSeller", "buyerUsername", "store1");
-        ArrayList<String> messages = c1.getMessages();
-        /*for (int i = 0; i < messages.size(); i++) {
-            System.out.println(messages.get(i));
-        }*/
+        String[] messages = c1.getMessages();
+        for (int i = 0; i < messages.length; i++) {
+            System.out.println(messages[i]);
+        }
     }
 }

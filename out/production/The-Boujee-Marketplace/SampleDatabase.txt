@@ -1,0 +1,4 @@
+username1,password1,buyer
+username2,password2,seller,amazone
+username3,abcdefgh,buyer
+john,john123,seller
