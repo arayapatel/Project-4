@@ -7,6 +7,13 @@ import java.io.FileReader;
 import java.io.BufferedReader;
 import java.util.*;
 public class BuyerDashboard {
+    public String filename = "";
+    public String userName = "";
+    public
+    public BuyerDashboard(String filename, String userName, Scanner scan) {
+        this.filename = filename;
+        this.userName = userName;
+    }
     Conversation conversation = new Conversation();
     public static void main(String[] args) {
         System.out.println("Welcome to the Dashboard!");
