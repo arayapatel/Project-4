@@ -6,7 +6,8 @@ public class IntroSequences {
 
 
     public static void main(String[] args) {
-        Buyer b = new Buyer();
+        Buyer b = new Buyer("src/SampleDatabase.txt");
+        Seller s = new Seller("src/SampleDatabase.txt");
     }
 
 }
