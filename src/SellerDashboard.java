@@ -1,4 +1,5 @@
 package src;
+<<<<<<< HEAD
 
 import java.util.ArrayList;
 import java.io.File;
@@ -21,5 +22,11 @@ public class SellerDashboard {
         return buyers;
     }
 
+=======
+>>>>>>> 10efa4ad27a58965665292f6870e2b20d862cbce
 
+public class SellerDashboard extends Dashboard{
+    public SellerDashboard(){
+
+    }
 }
