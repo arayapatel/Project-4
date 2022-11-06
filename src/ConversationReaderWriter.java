@@ -22,6 +22,7 @@ public class ConversationReaderWriter {
             while (!line.equals("-----")) {
                 line = br.readLine();
             }
+            line = br.readLine();
             ArrayList<String> messageLines = new ArrayList<>();
             while (line != null) {
                 messageLines.add(line);
@@ -30,6 +31,7 @@ public class ConversationReaderWriter {
             }
             return messageLines;
         } catch (Exception e) {
+            e.printStackTrace();
             System.out.println("failed");
             return null;
         }
