@@ -1,2 +1,2 @@
-public class Buyer extends Dashboard{
+public class BuyerDashboard extends Dashboard{
 }
