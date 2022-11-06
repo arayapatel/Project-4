@@ -9,5 +9,9 @@ public class IntroSequences {
         Buyer b = new Buyer("src/SampleDatabase.txt");
         Seller s = new Seller("src/SampleDatabase.txt");
     }
+  
+  public IntroSequences() {
+    
+  }
 
 }
