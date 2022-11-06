@@ -87,18 +87,11 @@ public class RunLocalTest {
         @Test(timeout = 1000)
         public void testOne() {
             // Set the input
-            String input = "Tower Bridge" + System.lineSeparator() + "4000" + System.lineSeparator() + "Eiffel Tower" +
-                    System.lineSeparator() + "2000" + System.lineSeparator() + "Ship in Bottle" + System.lineSeparator()
-                    + "1000" + System.lineSeparator() + "900" + System.lineSeparator() + "600"  + System.lineSeparator()
-                    + "500" + System.lineSeparator() + "600" + System.lineSeparator() + "500" + System.lineSeparator()
-                    + "500" + System.lineSeparator() + "400" + System.lineSeparator() + "900" + System.lineSeparator()
-                    + "700" + System.lineSeparator() + "700" + System.lineSeparator() + "800" + System.lineSeparator()
-                    + "800" + System.lineSeparator() + "600" + System.lineSeparator() + "500" + System.lineSeparator()
-                    + "700" + System.lineSeparator() + "1000" + System.lineSeparator() + "350" + System.lineSeparator()
-                    + "550" + System.lineSeparator() + "550" + System.lineSeparator() + "850" + System.lineSeparator();
+            String input = "Tower Bridge" + System.lineSeparator() + "4000" + System.lineSeparator();
 
             // Expected result
-            String expected = "Welcome";
+            String expected = "Welcome\n" + "Are you an existing user or a new user?\n";
+
 
             // Runs the program with the input values
             receiveInput(input);
