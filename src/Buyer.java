@@ -94,4 +94,5 @@ public class Buyer {
     public void setBw(BufferedWriter bw) {
         this.bw = bw;
     }
+
 }
