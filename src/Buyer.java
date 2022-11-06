@@ -3,7 +3,6 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class Buyer {
-//
     public final boolean buyer = true;
     public final boolean seller = false;
 
@@ -26,14 +25,6 @@ public class Buyer {
             e.printStackTrace();
         }
     }
-
-//    public String message(String target, String message) {
-//        ArrayList<String> lines = new ArrayList<String>();
-//        String line;
-//        while ((line = br.readLine()) != null) {
-//            lines.add(line);
-//        }
-//    }
 
     public ArrayList<String> findSellers() {
         ArrayList<String> sellers = new ArrayList<String>();
@@ -103,4 +94,5 @@ public class Buyer {
     public void setBw(BufferedWriter bw) {
         this.bw = bw;
     }
+
 }
