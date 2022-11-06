@@ -3,10 +3,6 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class Buyer {
-    //
-    ///
-    ///
-    /////
     public final boolean buyer = true;
     public final boolean seller = false;
 
