@@ -3,8 +3,10 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class Buyer {
-
+//
     public final boolean buyer = true;
+    public final boolean seller = false;
+
     public String username;
     public String email;
     public String file;
@@ -38,7 +40,7 @@ public class Buyer {
         String line;
         try {
             while ((line = br.readLine()) != null) {
-                if (isSeller(line))
+                if (checkSeller(line))
                     sellers.add(line);
             }
         }
@@ -49,13 +51,15 @@ public class Buyer {
         return sellers;
     }
 
-    public boolean isSeller(String str) {
+    public boolean checkSeller(String str) {
         if (Objects.equals(str.split(",")[2], "seller"))
             return true;
         else
             return false;
     }
-
+    public boolean isSeller() {
+        return seller;
+    }
     public boolean isBuyer() {
         return buyer;
     }
