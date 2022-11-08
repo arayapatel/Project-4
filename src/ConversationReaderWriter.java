@@ -2,6 +2,8 @@ package src;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.time.format.DateTimeFormatter;
+import java.time.LocalDateTime;
 
 public class ConversationReaderWriter {
     private String myUser;
@@ -28,7 +30,6 @@ public class ConversationReaderWriter {
             ArrayList<String> messageLines = new ArrayList<>();
             while (line != null) {
                 messageLines.add(line);
-                //System.out.println(line);
                 line = br.readLine();
             }
 
@@ -49,25 +50,48 @@ public class ConversationReaderWriter {
         }
     }
 
-    public boolean writeMessage() {
+    public boolean writeMessage(String message) {
         try {
-            BufferedReader br = new BufferedReader(new FileReader(new File(myUser)));
-            PrintWriter pw = new PrintWriter(new FileWriter(new File(myUser)));
-            ArrayList<String> tempFile = new ArrayList<String>();
-            tempFile.add(br.readLine());
-            while (!tempFile.get(tempFile.size()).equals("-----")) {
+            BufferedReader br;
+            PrintWriter pw;
+            String isRead;
+            for (int i = 0; i < 2; i++) {
+                if (i == 0) {
+                    br = new BufferedReader(new FileReader(new File(myUser)));
+                    pw = new PrintWriter(new FileWriter(new File(myUser)));
+                    isRead = "true";
+                } else {
+                    br = new BufferedReader(new FileReader(new File(recievingUser)));
+                    pw = new PrintWriter(new FileWriter(new File(recievingUser)));
+                    isRead = "false";
+                }
+                ArrayList<String> tempFile = new ArrayList<String>();
                 tempFile.add(br.readLine());
-            }
-            tempFile.add(br.readLine());
-            ArrayList<String> messageLines = new ArrayList<>();
-            while (tempFile.get(tempFile.size()) != null) {
+                while (!tempFile.get(tempFile.size()).equals("-----")) {
+                    tempFile.add(br.readLine());
+                }
                 tempFile.add(br.readLine());
-            }
-
-            for (int i = 0; i < messageLines.size(); i++) {
-                String[] oneLine = messageLines.get(i).split(", ");
-                if (oneLine[1].equals(recievingUser) && oneLine[2].equals(store)) {
-                    return true;
+                boolean found = false;
+                while (tempFile.get(tempFile.size()) != null) {
+                    String[] oneLine = tempFile.get(tempFile.size()).split(", ");
+                    if (oneLine[1].equals(recievingUser) && oneLine[2].equals(store)) {
+                        found = true;
+                        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyyy HH:mm:ss");
+                        LocalDateTime now = LocalDateTime.now();
+                        String timestamp = dtf.format(now);
+                        tempFile.set(tempFile.size(), tempFile.get(tempFile.size()) + String.format(",[%s;%s;%s;%s]", myUser, isRead, timestamp, message));
+                    }
+                    tempFile.add(br.readLine());
+                }
+                if (!found) {
+                    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyyy HH:mm:ss");
+                    LocalDateTime now = LocalDateTime.now();
+                    String timestamp = dtf.format(now);
+                    if (isRead.equals("true")) {
+                        tempFile.add(String.format("1, %s, %s, [%s;%s;%s;%s]", myUser, store, myUser, isRead, timestamp, message));
+                    } else {
+                        tempFile.add(String.format("0, %s, %s, [%s;%s;%s;%s]", myUser, store, myUser, isRead, timestamp, message));
+                    }
                 }
             }
             return true;
