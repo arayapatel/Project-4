@@ -7,19 +7,27 @@ import java.io.FileReader;
 import java.io.BufferedReader;
 import java.util.*;
 import java.util.Scanner;
+
+
+
 public class BuyerDashboard {
-    public String filename = "";
+    public String fileName = "";
     public String userName = "";
-    public Scanner scan;
+    public Scanner scan = new Scanner(System.in);
+    public String recipient;
+    public String store;
+    public int response = 0;
+
+
 
 
     public BuyerDashboard(String filename, String userName, Scanner scan) {
-        this.filename = filename;
+        this.fileName = filename;
         this.userName = userName;
         this.scan = scan;
 
     }
-    Conversation conversation = new Conversation();
+    Conversation conversation = new Conversation(scan, userName, fileName, recipient, store);
 
     public ArrayList<String> readFile() {
         ArrayList<String> sellers = new ArrayList<String>();
@@ -37,10 +45,19 @@ public class BuyerDashboard {
         return sellers;
     }
 
+    public void mainMessage() {
+        String print = String.format("Welcome to the Dashboard!\nChoose what you would like to do\n\n" +
+                                     "1.) View/Send to stores" +
+                                     "2.) Search for a seller" +
+                                     "3.) Add a new censor" +
+                                     "4.) Export" +
+                                     "5.) Exit\n");
+        System.out.println(print);
+        response = scan.nextInt();
 
-    public static void main(String[] args) {
-        System.out.println("Welcome to the Dashboard!");
     }
+
+
 
 
 }

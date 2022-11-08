@@ -1,6 +1,8 @@
 package src;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -15,15 +17,12 @@ public class Buyer {
     public BufferedWriter bw;
 
 
-
-
     public Buyer(String file) {
         try {
             this.file = file;
             this.br = new BufferedReader(new FileReader(file));
-            this.bw = new BufferedWriter(new FileWriter(file));
-        }
-        catch (Exception e) {
+//            this.bw = new BufferedWriter(new FileWriter(file));
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -36,8 +35,7 @@ public class Buyer {
                 if (checkSeller(line))
                     sellers.add(line);
             }
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
@@ -45,14 +43,13 @@ public class Buyer {
     }
 
     public boolean checkSeller(String str) {
-        if (Objects.equals(str.split(",")[2], "seller"))
-            return true;
-        else
-            return false;
+        return Objects.equals(str.split(",")[2], "seller");
     }
+
     public boolean isSeller() {
         return seller;
     }
+
     public boolean isBuyer() {
         return buyer;
     }
