@@ -1,0 +1,10 @@
+SampleSeller, SampleUser@gmail.com
+Store1,store2,store3
+store1, SampleBuyer1; SampleBuyer2; SampleBuyer3
+store2, SampleBuyer3; SampleBuyer5; SampleBuyer6
+store3; SampleBuyer2; SampleBuyer3; SampleBuyer4; SampleBuyer5; SampleBuyer6
+[cats, ****],[jewels, rocks]
+-----
+3, buyerUsername, store1, [false;7:08 Tuesday...;Hey Bob how are o..],[false;7:08 Tuesday...;Hey Bob how are o..]|[false;7:08 Tuesday...;Hey Bob how are o..]
+3, buyerUsername, store2, [false;7:08 Tuesday...;Hey Bob how are o..],[false;7:08 Tuesday...;Hey Bob how are o..]|[false;7:08 Tuesday...;Hey Bob how are o..]
+3, buyerUsername2, store2, [false;7:08 Tuesday...;Hey Bob how are o..],[false;7:08 Tuesday...;Hey Bob how are o..]|[false;7:08 Tuesday...;Hey Bob how are o..]
