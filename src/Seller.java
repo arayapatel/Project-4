@@ -21,7 +21,7 @@ public class Seller {
         try {
             this.file = file;
             this.br = new BufferedReader(new FileReader(file));
-            this.bw = new BufferedWriter(new FileWriter(file));
+//            this.bw = new BufferedWriter(new FileWriter(file));
         }
         catch (Exception e) {
             e.printStackTrace();
