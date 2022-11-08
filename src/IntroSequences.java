@@ -12,8 +12,7 @@ public class IntroSequences {
     }
   
   public IntroSequences() {
-      System.out.printf("sample");
-    
+      System.out.println("sample");
   }
 
   public static void test() {
