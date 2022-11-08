@@ -1,5 +1,6 @@
 package src;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Conversation {
@@ -21,34 +22,38 @@ public class Conversation {
         return fileName;
     }
 
-    public void setFileName(String fileName) {
-        this.fileName = fileName;
-    }
 
     public String getRecipient() {
         return recipient;
-    }
-
-    public void setRecipient(String recipient) {
-        this.recipient = recipient;
     }
 
     public int getOption() {
         return option;
     }
 
-    public void setOption(int option) {
-        this.option = option;
-    }
-
-    public Conversation(Scanner scan, String userName, String fileName, String recipient) {
+    public Conversation(Scanner scan, String userName, String fileName, String recipient, String store) {
         this.scan = scan;
         this.userName = userName;
         this.fileName = fileName;
         this.recipient = recipient;
-        ConversationReaderWriter crw = new ConversationReaderWriter()
+        ConversationReaderWriter crw = new ConversationReaderWriter(userName, recipient,store);
+        String[] messageLog = crw.getMessages(); //find exact name
+        ArrayList<ArrayList<String[]>> messages = new ArrayList<ArrayList<String[]>>();
+        String sender = messageLog[0].split(";",4)[0];
+        String time = messageLog[0].split(";",4)[2];
+        System.out.printf("%s @%s%n", sender, time);
+        for (String message : messageLog) {
+            String[] messageSep = message.split(";",4);
+            if (messageSep[0].equals(sender) && /* something to check time*/) {
+                System.out.println(messageSep[3]);
+
+            }
+
+        }
+            //System.out.printf("%s"); //usern, read, time, message
+        //}
         do {
-            System.out.println("What do you want to do?");
+            System.out.println("What do you want to do?/n");
         } while (option != 5);
     }
 

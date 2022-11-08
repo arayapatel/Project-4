@@ -29,7 +29,7 @@ public class Seller {
     }
 
 
-    public ArrayList<String> findSellers() {
+    public ArrayList<String> findBuyers() {
         ArrayList<String> sellers = new ArrayList<String>();
         String line;
         try {
