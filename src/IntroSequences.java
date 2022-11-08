@@ -1,5 +1,7 @@
 package src;
 
+import java.util.Scanner;
+
 public class IntroSequences {
   
   //  Format:
@@ -12,8 +14,16 @@ public class IntroSequences {
     }
   
   public IntroSequences() {
-      System.out.printf("sample");
-    
+      System.out.println("To login, enter 1. \nTo create an account, enter 2. ");
+      Scanner s = new Scanner(System.in);
+      if (s.nextInt() == 1) {
+          s.nextLine();
+          System.out.println("Please enter username: ");
+          String username = s.nextLine();
+          System.out.println("Please enter password: ");
+          String password = s.nextLine();
+
+      }
   }
 
   public static void test() {
