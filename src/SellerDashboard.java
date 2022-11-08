@@ -1,11 +1,19 @@
 package src;
-<<<<<<< HEAD
 
 import java.util.ArrayList;
 import java.io.File;
 import java.io.FileReader;
 import java.io.BufferedReader;
+import java.util.Scanner;
 public class SellerDashboard {
+    public Scanner scan;
+    public String userName = "";
+    public String filename = "";
+    public SellerDashboard(Scanner scan, String userName, String fileName) {
+        this.scan = scan;
+        this.userName = userName;
+        this.filename = fileName;
+    }
     public ArrayList<String> readFile() {
         ArrayList<String> buyers = new ArrayList<String>();
         try {
@@ -22,11 +30,14 @@ public class SellerDashboard {
         return buyers;
     }
 
-=======
->>>>>>> 10efa4ad27a58965665292f6870e2b20d862cbce
-
-public class SellerDashboard extends Dashboard{
-    public SellerDashboard(){
-
+    public String mainMessage() {
+        String print = String.format("Welcom to the Dashboard!");
+        return print;
     }
+
+
 }
+
+
+
+

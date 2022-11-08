@@ -6,18 +6,21 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.BufferedReader;
 import java.util.*;
+import java.util.Scanner;
 public class BuyerDashboard {
     public String filename = "";
     public String userName = "";
-    public
+    public Scanner scan;
+
+
     public BuyerDashboard(String filename, String userName, Scanner scan) {
         this.filename = filename;
         this.userName = userName;
+        this.scan = scan;
+
     }
     Conversation conversation = new Conversation();
-    public static void main(String[] args) {
-        System.out.println("Welcome to the Dashboard!");
-    }
+
     public ArrayList<String> readFile() {
         ArrayList<String> sellers = new ArrayList<String>();
         try {
@@ -35,6 +38,9 @@ public class BuyerDashboard {
     }
 
 
+    public static void main(String[] args) {
+        System.out.println("Welcome to the Dashboard!");
+    }
 
 
 }
