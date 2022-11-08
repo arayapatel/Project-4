@@ -63,48 +63,12 @@ public class Conversation {
     public int getOption() {
         return option;
     }
-<<<<<<< HEAD
 //    public void sendMessage() {
 //        scan.
 //
 //
 //    }
 //
-=======
-
-    public Conversation() {
-        this.scan = scan;
-        this.userName = userName;
-        this.fileName = fileName;
-        this.recipient = recipient;
-        ConversationReaderWriter crw = new ConversationReaderWriter(userName, recipient,store);
-        String[] messageLog = crw.getMessages(); //find exact name
-        ArrayList<ArrayList<String[]>> messages = new ArrayList<ArrayList<String[]>>();
-        String sender = messageLog[0].split(";",4)[0];
-        String time = messageLog[0].split(";",4)[2];
-        System.out.printf("%s @%s%n", sender, time);
-        for (String message : messageLog) {
-            String[] messageSep = message.split(";",4);
-            if (messageSep[0].equals(sender) && /* something to check time*/) {
-                System.out.println(messageSep[3]);
-
-            }
-
-        }
-            //System.out.printf("%s"); //usern, read, time, message
-        //}
-        do {
-            System.out.println("What do you want to do?/n");
-        } while (option != 5);
-    }
-
-    public void sendMessage() {
-        scan.
-
-
-    }
-
->>>>>>> 626ed61e14335f433245faee975ef51528218ff6
 
 
 }
