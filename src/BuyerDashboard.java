@@ -46,7 +46,21 @@ public class BuyerDashboard {
     }
 
     public ArrayList<String> readStores() {
+        ArrayList<String> stores = new ArrayList<String>();
+        //ArrayList<String> fileContents = new ArrayList<String>();
+        try {
+            BufferedReader bfr = new BufferedReader(new FileReader(new File("Stores.txt")));
+            String line = bfr.readLine();
+            while (line != null) {
+                stores.add(line);
+                line = bfr.readLine();
+            }
+            bfr.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
+        return stores;
     }
 
     public void mainMessage() {
@@ -62,6 +76,8 @@ public class BuyerDashboard {
 
     public void forward() {
         if (response == 1) {
+            ArrayList<String> allStores = new ArrayList<String>();
+            allStores = readStores();
 
         }
     }

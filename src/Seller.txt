@@ -1,4 +1,4 @@
-Seller1
-Seller2
-Seller3
-Seller4
+Seller1; stores: totalMessages
+Seller2; stores: totalMessages
+Seller3; stores: totalMessages
+Seller4; stores; totalMessages
