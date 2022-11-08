@@ -13,13 +13,14 @@ public class BuyerDashboard {
     public Scanner scan;
 
 
-    public BuyerDashboard(String filename, String userName, Scanner scan) {
+
+    public BuyerDashboard(String filename, String userName, Scanner scan,) {
         this.filename = filename;
         this.userName = userName;
         this.scan = scan;
 
     }
-    Conversation conversation = new Conversation();
+    Conversation conversation = new Conversation(Scanner scan, String userName, String fileName, String recipient, String store);
 
     public ArrayList<String> readFile() {
         ArrayList<String> sellers = new ArrayList<String>();
@@ -37,10 +38,15 @@ public class BuyerDashboard {
         return sellers;
     }
 
-
-    public static void main(String[] args) {
-        System.out.println("Welcome to the Dashboard!");
+    public String mainMessage() {
+        String print = String.format("Welcome to the Dashboard!\nChoose what you would like to do\n\n" +
+                                     "1.) View/Send to stores" +
+                                     "2.) Search for a seller" +
+                                     "3.) ");
+        return print;
     }
+
+
 
 
 }
