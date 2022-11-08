@@ -30,7 +30,7 @@ public class Conversation {
         return option;
     }
 
-    public Conversation(Scanner scan, String userName, String fileName, String recipient, String store) {
+    public Conversation() {
         this.scan = scan;
         this.userName = userName;
         this.fileName = fileName;
