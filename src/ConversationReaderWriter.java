@@ -41,9 +41,11 @@ public class ConversationReaderWriter {
                         messages[0] = messages[0].substring(1);
                         messages[messages.length - 1] = messages[messages.length - 1].substring(0, messages[messages.length - 1].length() - 1);
                     }
+                    br.close();
                     return messages;
                 }
             }
+            br.close();
             return null;
         } catch (Exception e) {
             return null;
@@ -52,34 +54,41 @@ public class ConversationReaderWriter {
 
     public boolean writeMessage(String message) {
         try {
-            BufferedReader br;
-            PrintWriter pw;
+            File f = null;
+            BufferedReader br = null;
+            PrintWriter pw = null;
+            PrintWriter clearer = null;
             String isRead;
             for (int i = 0; i < 2; i++) {
                 if (i == 0) {
-                    br = new BufferedReader(new FileReader(new File(myUser)));
-                    pw = new PrintWriter(new FileWriter(new File(myUser)));
+                    f = new File(myUser);
                     isRead = "true";
                 } else {
-                    br = new BufferedReader(new FileReader(new File(recievingUser)));
-                    pw = new PrintWriter(new FileWriter(new File(recievingUser)));
+                    f = new File(recievingUser);
                     isRead = "false";
                 }
+                br = new BufferedReader(new FileReader(f));
+                pw = new PrintWriter(new FileOutputStream(f, true));
                 ArrayList<String> tempFile = new ArrayList<String>();
                 tempFile.add(br.readLine());
-                while (!tempFile.get(tempFile.size()).equals("-----")) {
+
+                //---
+                System.out.println("\nThis: " + tempFile.get(tempFile.size() - 1));
+                //---
+
+                while (!tempFile.get(tempFile.size() - 1).equals("-----")) {
                     tempFile.add(br.readLine());
                 }
                 tempFile.add(br.readLine());
                 boolean found = false;
-                while (tempFile.get(tempFile.size()) != null) {
-                    String[] oneLine = tempFile.get(tempFile.size()).split(", ");
+                while (tempFile.get(tempFile.size() - 1) != null) {
+                    String[] oneLine = tempFile.get(tempFile.size() - 1).split(", ");
                     if (oneLine[1].equals(recievingUser) && oneLine[2].equals(store)) {
                         found = true;
                         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyyy HH:mm:ss");
                         LocalDateTime now = LocalDateTime.now();
                         String timestamp = dtf.format(now);
-                        tempFile.set(tempFile.size(), tempFile.get(tempFile.size()) + String.format(",[%s;%s;%s;%s]", myUser, isRead, timestamp, message));
+                        tempFile.set(tempFile.size() - 1, tempFile.get(tempFile.size() - 1) + String.format(",[%s;%s;%s;%s]", myUser, isRead, timestamp, message));
                     }
                     tempFile.add(br.readLine());
                 }
@@ -93,11 +102,31 @@ public class ConversationReaderWriter {
                         tempFile.add(String.format("0, %s, %s, [%s;%s;%s;%s]", myUser, store, myUser, isRead, timestamp, message));
                     }
                 }
+                clearer = new PrintWriter(new FileOutputStream(f, false));
+                for (int j = 0; j < tempFile.size(); j++) {
+                    pw.println(tempFile.get(j));
+                }
             }
+            br.close();
+            pw.close();
+            clearer.close();
             return true;
         } catch (Exception e) {
+            e.printStackTrace();
             return false;
         }
+    }
+
+    public boolean invisibleMessage(String message) {
+        return true;
+    }
+
+    public boolean editMessage(String message) {
+        return true;
+    }
+
+    public boolean deleteMessage(String message) {
+        return true;
     }
 
     public String[] getMessages() {
@@ -105,11 +134,13 @@ public class ConversationReaderWriter {
     }
 
     public static void main(String[] args) {
-        ConversationReaderWriter c1 = new ConversationReaderWriter("SampleSeller", "buyerUsername", "store1");
+        ConversationReaderWriter c1 = new ConversationReaderWriter("SampleBuyer", "SampleSeller", "general");
         String[] recievedMessages = c1.getMessages();
 
         for (int i = 0; i < recievedMessages.length; i++) {
             System.out.println(recievedMessages[i]);
         }
+
+        System.out.println(c1.writeMessage("Attempt1"));
     }
 }
