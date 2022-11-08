@@ -1,5 +1,6 @@
 package src;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Conversation {
@@ -37,10 +38,20 @@ public class Conversation {
         this.recipient = recipient;
         ConversationReaderWriter crw = new ConversationReaderWriter(userName, recipient,store);
         String[] messageLog = crw.getMessages(); //find exact name
-        //message.split(";",4)
+        ArrayList<ArrayList<String[]>> messages = new ArrayList<ArrayList<String[]>>();
+        String sender = messageLog[0].split(";",4)[0];
+        String time = messageLog[0].split(";",4)[2];
+        System.out.printf("%s @%s%n", sender, time);
         for (String message : messageLog) {
-            System.out.printf("%s"); //usern, read, time, message
+            String[] messageSep = message.split(";",4);
+            if (messageSep[0].equals(sender) && /* something to check time*/) {
+                System.out.println(messageSep[3]);
+
+            }
+
         }
+            //System.out.printf("%s"); //usern, read, time, message
+        //}
         do {
             System.out.println("What do you want to do?/n");
         } while (option != 5);
