@@ -42,8 +42,27 @@ public class Buyer {
         return sellers;
     }
 
+    public ArrayList<String> findBuyers() {
+        ArrayList<String> sellers = new ArrayList<String>();
+        String line;
+        try {
+            while ((line = br.readLine()) != null) {
+                if (checkBuyer(line))
+                    sellers.add(line);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return sellers;
+    }
+
     public boolean checkSeller(String str) {
         return Objects.equals(str.split(",")[2], "seller");
+    }
+
+    public boolean checkBuyer(String str) {
+        return Objects.equals(str.split(",")[2], "buyer");
     }
 
     public boolean isSeller() {

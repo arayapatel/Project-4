@@ -43,8 +43,27 @@ public class Seller {
         return sellers;
     }
 
+    public ArrayList<String> findSellers() {
+        ArrayList<String> sellers = new ArrayList<String>();
+        String line;
+        try {
+            while ((line = br.readLine()) != null) {
+                if (checkSeller(line))
+                    sellers.add(line);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return sellers;
+    }
+
     public boolean checkBuyer(String str) {
         return Objects.equals(str.split(",")[2], "buyer");
+    }
+
+    public boolean checkSeller(String str) {
+        return Objects.equals(str.split(",")[2], "seller");
     }
 
     public boolean isSeller() {

@@ -29,7 +29,7 @@ public class BuyerDashboard {
     }
     Conversation conversation = new Conversation(scan, userName, fileName, recipient, store);
 
-    public ArrayList<String> readFile() {
+    public ArrayList<String> readSellers() {
         ArrayList<String> sellers = new ArrayList<String>();
         try {
             BufferedReader bfr = new BufferedReader(new FileReader(new File("Seller.txt")));
@@ -45,6 +45,10 @@ public class BuyerDashboard {
         return sellers;
     }
 
+    public ArrayList<String> readStores() {
+
+    }
+
     public void mainMessage() {
         String print = String.format("Welcome to the Dashboard!\nChoose what you would like to do\n\n" +
                                      "1.) View/Send to stores" +
@@ -54,7 +58,12 @@ public class BuyerDashboard {
                                      "5.) Exit\n");
         System.out.println(print);
         response = scan.nextInt();
+    }
 
+    public void forward() {
+        if (response == 1) {
+
+        }
     }
 
 
