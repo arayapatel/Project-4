@@ -18,16 +18,13 @@ public class BuyerDashboard {
     public String store;
     public int response = 0;
 
-
-
-
     public BuyerDashboard(String filename, String userName, Scanner scan) {
         this.fileName = filename;
         this.userName = userName;
         this.scan = scan;
 
     }
-    Conversation conversation = new Conversation(scan, userName, fileName, recipient, store);
+   // Conversation conversation = new Conversation(scan, userName, fileName, recipient, store);
 
     public ArrayList<String> readSellers() {
         ArrayList<String> sellers = new ArrayList<String>();
@@ -63,7 +60,41 @@ public class BuyerDashboard {
         return stores;
     }
 
-    public void mainMessage() {
+    ArrayList<String> unsortedSellers = new ArrayList<String>();
+    ArrayList<Integer> totalMess = new ArrayList<Integer>();
+    public void totalMessages() {
+        try {
+            BufferedReader bfr = new BufferedReader(new FileReader(new File("Seller.txt")));
+            String line = bfr.readLine();
+            while (line != null) {
+                unsortedSellers.add(line);
+                line = bfr.readLine();
+            }
+            bfr.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        for (int i = 0; i < unsortedSellers.size(); i++) {
+            int index = unsortedSellers.get(i).indexOf(":");
+            totalMess.add(Integer.parseInt(unsortedSellers.get(i).substring(index + 1)));
+        }
+    }
+    ArrayList<String> sortedSellers = new ArrayList<String>();
+    public void sort() {
+        totalMessages();
+        Collections.sort(totalMess, Collections.reverseOrder());
+        for (int i = 0; i < totalMess.size(); i++) {
+            for (int j = 0; j < unsortedSellers.size(); j++) {
+                int index = unsortedSellers.get(i).indexOf(":");
+                if((Integer.parseInt(unsortedSellers.get(i).substring(index + 1))) == totalMess.get(i)) {
+                    int ind = unsortedSellers.get(i).indexOf(";");
+                    sortedSellers.add(unsortedSellers.get(i).substring(0, ind));
+                }
+            }
+        }
+    }
+    public void startMessage() {
         String print = String.format("Welcome to the Dashboard!\nChoose what you would like to do\n\n" +
                                      "1.) View/Send to stores" +
                                      "2.) Search for a seller" +
@@ -74,13 +105,30 @@ public class BuyerDashboard {
         response = scan.nextInt();
     }
 
+
     public void forward() {
+        startMessage();
         if (response == 1) {
             ArrayList<String> allStores = new ArrayList<String>();
             allStores = readStores();
+            System.out.println("Would you like to sort the sellers by their popularity?\n1.) Yes\n2.) No ");
+            int resp = scan.nextInt();
+            if (resp == 1) {
+                sort();
+                for (int i = 0; i < sortedSellers.size(); i++) {
+                    System.out.println(sortedSellers.get(i) + "\n");
+                }
+            }else if (resp == 2) {
+                for (int i = 0; i < unsortedSellers.size(); i++) {
+                    System.out.println(unsortedSellers.get(i) + "\n");
+                }
+            }
+        }
+        if (response == 2) {
 
         }
     }
+
 
 
 
