@@ -156,6 +156,13 @@ public class BuyerDashboard {
         }
         if (response == 3) {
             System.out.println("What censors would you like to add?");
+            String censors = scan.nextLine();
+        }
+        if (response == 4) {
+
+        }
+        if (response == 5) {
+
         }
     }
 
