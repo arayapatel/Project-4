@@ -8,6 +8,3 @@ store3; SampleBuyer2; SampleBuyer3; SampleBuyer4; SampleBuyer5; SampleBuyer6
 3, buyerUsername, store1, [buyerUsername;false;7:08 Tuesday...;Hey Bob how are o..],[SampleSeller;false;7:08 Tuesday...;Hey Bob how are o..],[SampleSeller;false;7:08 Tuesday...;Hey Bob how are o..]
 3, buyerUsername2, store1, [buyerUsername;false;7:08 Tuesday...;Hey Bob how are o..],[SampleSeller;false;7:08 Tuesday...;Hey Bob how are o..],[SampleSeller;false;7:08 Tuesday...;Hey Bob how are o..]
 3, buyerUsername3, store1, [buyerUsername;false;7:08 Tuesday...;Hey Bob how are o..],[SampleSeller;false;7:08 Tuesday...;Hey Bob how are o..],[SampleSeller;false;7:08 Tuesday...;Hey Bob how are o..]
-6, SampleBuyer, general, [SampleBuyer;false;11/09/2022 21:59:32;Attempt1],[SampleBuyer;false;11/09/2022 22:04:39;Attempt1],[SampleBuyer;false;11/09/2022 22:08:37;Attempt1],[SampleBuyer;false;11/09/2022 22:22:36;Attempt1],[SampleBuyer;false;11/09/2022 22:22:56;Attempt1]
-null
-0, SampleBuyer, general, [SampleBuyer;false;11/07/2022 23:31:26;Attempt1]
