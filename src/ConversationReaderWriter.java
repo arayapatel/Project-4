@@ -317,6 +317,14 @@ public class ConversationReaderWriter {
                             }
                             makeNewLine += messagesPart[j];
                         }
+                        makeNewLine += " ";
+                        System.out.println("currentline: " + makeNewLine);
+                        if (!makeNewLine.split(", ")[3].equals(" ")) {
+                            makeNewLine = makeNewLine.substring(0, makeNewLine.length() - 1);
+                            makeNewLine += "],[";
+                        } else {
+                            makeNewLine = makeNewLine.substring(0, makeNewLine.length() - 1);
+                        }
                         String linePieceToChange = messagesPart[messageToChange];
                         String[] changingLine = linePieceToChange.split(";");
                         changingLine[3] = newMessage;
@@ -326,11 +334,8 @@ public class ConversationReaderWriter {
                             }
                             makeNewLine += changingLine[j];
                         }
-                        for (int j = messageToChange; j < messagesPart.length; j++) {
+                        for (int j = messageToChange + 1; j < messagesPart.length; j++) {
                             makeNewLine += "],[" + messagesPart[j];
-                            if (j < messagesPart.length - 1) {
-                                makeNewLine += "],[";
-                            }
                         }
                         if (makeNewLine.charAt(makeNewLine.length() - 1) != ']') {
                             makeNewLine += "]";
@@ -391,7 +396,7 @@ public class ConversationReaderWriter {
             System.out.println("null");
         }*/
 
-        c1.editMessage(1,"edited11");
+        c1.editMessage(2,"Attempt4");
         recievedMessages = c1.readMessages();
         if (recievedMessages != null) {
             for (int i = 0; i < recievedMessages.length; i++) {
@@ -400,6 +405,7 @@ public class ConversationReaderWriter {
         } else {
             System.out.println("null");
         }
+        //c1.writeMessage("Attempt3");
 
     }
 }
