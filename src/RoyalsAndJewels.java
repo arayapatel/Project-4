@@ -17,7 +17,7 @@ public class RoyalsAndJewels {
     public static void sellerInitiate(String fileName, String userName, Scanner scan){
         Seller seller = new Seller(fileName);
         SellerDashboard sd = new SellerDashboard(scan, userName, fileName);
-
+        System.out.println("Do you wish to logOut?");
 
     }
     public static void buyerInitiate(String username){
