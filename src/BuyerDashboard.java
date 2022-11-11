@@ -1,13 +1,10 @@
 package src;
 
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
-import java.io.File;
-import java.io.FileReader;
-import java.io.BufferedReader;
 import java.util.*;
 import java.util.Scanner;
-
+import java.io.FileReader;
 
 
 public class BuyerDashboard {
@@ -17,11 +14,23 @@ public class BuyerDashboard {
     public String recipient = "";
     public String store = "";
     public int response = 0;
+    public boolean again = true;
 
-    public BuyerDashboard(String filename, String userName, Scanner scan) {
+    public BuyerDashboard(Scanner scan, String userName, String filename) {
         this.fileName = filename;
         this.userName = userName;
         this.scan = scan;
+        /*
+        print stuff
+        get input
+         */
+        startMessage();
+        while (again) {
+            forward();
+        }
+
+
+
 
     }
    // Conversation conversation = new Conversation(scan, userName, fileName, recipient, store);
@@ -45,7 +54,7 @@ public class BuyerDashboard {
             int endIndex = fileContents.get(i).indexOf(":");
             stores.add(unsortedSellers.get(i).substring(startIndex + 2, endIndex));
         }
-
+        //return null;
     }
 
     ArrayList<String> unsortedSellers = new ArrayList<String>();
@@ -85,6 +94,32 @@ public class BuyerDashboard {
                 }
             }
         }
+    }
+    public void exportFile() {
+        ArrayList<String> fileContent = new ArrayList<String>();
+        try {
+            File file = new File("csv.csv");
+            FileWriter outputFile = new FileWriter(file);
+            BufferedReader bfr = new BufferedReader(new FileReader(new File(userName)));
+            String line = bfr.readLine();
+            while (line != null) {
+                fileContent.add(line);
+                line = bfr.readLine();
+            }
+            bfr.close();
+            int index = 0;
+            for (int i = 0; i < fileContent.size(); i++) {
+                if (fileContent.get(i).contains("-----")) {
+                    index = i;
+                }
+            }
+
+           // CSVWriter writer = new CSVWriter(outputFile);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
     }
     public void startMessage() {
         String print = String.format("Welcome to the Dashboard!\nChoose what you would like to do\n\n" +
@@ -130,11 +165,12 @@ public class BuyerDashboard {
             }
         }
         if (response == 2) {
-            System.out.println("Which seller are you looking for?\n");
-            String seller = scan.nextLine();
             int indexOfSeller;
             boolean found = false;
+            String seller = "";
             while (!found) {
+                System.out.println("Which seller are you looking for?\n");
+                seller = scan.nextLine();
                 for (int i = 0; i < sortedSellers.size(); i++) {
                     if (sortedSellers.get(i).equals(seller)) {
                         found = true;
@@ -156,8 +192,18 @@ public class BuyerDashboard {
         }
         if (response == 3) {
             System.out.println("What censors would you like to add?");
+            String censors = scan.nextLine();
         }
+        if (response == 4) {
+            //./csv();
+        }
+
+        if (response == 5) {
+            again = false;
+        }
+
     }
+
 
 
 

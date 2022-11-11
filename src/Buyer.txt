@@ -1,4 +1,4 @@
-Buyer1
-Buyer2
-Buyer3
-Buyer4
+Buyer1; totalMessages
+Buyer2; totalMessages
+Buyer3; totalMessages
+Buyer4; totalMessages
