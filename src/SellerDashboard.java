@@ -16,11 +16,17 @@ public class SellerDashboard {
     public Scanner scan = new Scanner(System.in);
     public String recipient = "";
     public int response = 0;
+    public boolean again = true;
 
     public SellerDashboard(Scanner scan, String userName, String fileName ) {
         this.fileName = fileName;
         this.userName = userName;
         this.scan = scan;
+        startMessage();
+        while (again) {
+            forward();
+        }
+
 
     }
     // Conversation conversation = new Conversation(scan, userName, fileName, recipient, store);
@@ -113,6 +119,7 @@ public class SellerDashboard {
             if (ans.equals("yes") || ans.equals("Yes")) {
                 System.out.println("Which buyer?");
                 recipient = scan.nextLine();
+                String store = "General";
                 Conversation conversation = new Conversation(scan, userName, fileName, recipient, store);
             }
         }
@@ -147,13 +154,12 @@ public class SellerDashboard {
             String censors = scan.nextLine();
         }
         if (response == 4) {
-            try {
 
-            } catch
         }
         if (response == 5) {
-
+            again = true;
         }
+
     }
 
 

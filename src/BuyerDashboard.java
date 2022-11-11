@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.*;
 import java.util.Scanner;
 import java.io.FileReader;
-import com.opencsv.CSVReader;
 
 
 public class BuyerDashboard {
@@ -15,6 +14,7 @@ public class BuyerDashboard {
     public String recipient = "";
     public String store = "";
     public int response = 0;
+    public boolean again = true;
 
     public BuyerDashboard(Scanner scan, String userName, String filename) {
         this.fileName = filename;
@@ -25,7 +25,7 @@ public class BuyerDashboard {
         get input
          */
         startMessage();
-        while () {
+        while (again) {
             forward();
         }
 
@@ -114,7 +114,7 @@ public class BuyerDashboard {
                 }
             }
 
-            CSVWriter writer = new CSVWriter(outputFile);
+           // CSVWriter writer = new CSVWriter(outputFile);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -195,12 +195,15 @@ public class BuyerDashboard {
             String censors = scan.nextLine();
         }
         if (response == 4) {
-            csv();
+            //./csv();
         }
-        if (response == 5) {
 
+        if (response == 5) {
+            again = false;
         }
+
     }
+
 
 
 
