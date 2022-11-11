@@ -1,5 +1,7 @@
 package src;
 
+import java.io.File;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -12,93 +14,93 @@ public class IntroSequences {
 
     // I am become procrastination, destroyer of grades.
 
+    private String username;
+    private String password;
 
     public IntroSequences() {
-        Buyer b = new Buyer("src/SampleDatabase.txt");
-        Seller se = new Seller("src/SampleDatabase.txt");
-        System.out.println("To login, enter 1. \nTo create an account, enter 2. ");
-        Scanner s = new Scanner(System.in);
-        s.nextLine();
-        if (s.nextInt() == 1) {
+        try {
+            Buyer b = new Buyer("src/SampleDatabase.txt");
+            Seller se = new Seller("src/SampleDatabase.txt");
+            System.out.println("To login, enter 1. \nTo create an account, enter 2. ");
+            PrintWriter pw = new PrintWriter(new File("account_list.txt"));
+            Scanner s = new Scanner(System.in);
+            int create = s.nextInt();
             s.nextLine();
-            System.out.println("If you are a buyer, enter 1. \nIf you are a seller, enter 2.");
-            int buyer = s.nextInt();
-            s.nextLine();
-            System.out.println("Please enter username: ");
-            String username = s.nextLine();
-            System.out.println("Please enter password: ");
-            String password = s.nextLine();
 
-            int login = 0;
+            if (create == 1) {
+                s.nextLine();
+                System.out.println("If you are a buyer, enter 1. \nIf you are a seller, enter 2.");
+                int buyer = s.nextInt();
+                s.nextLine();
+                System.out.println("Please enter username: ");
+                String username = s.nextLine();
+                System.out.println("Please enter password: ");
+                String password = s.nextLine();
+
+                int login = 0;
 
 
-            if (buyer == 1) {
-                ArrayList<String> buyers = se.findBuyers();
+                if (buyer == 1) {
+                    ArrayList<String> buyers = se.findBuyers();
 
-                for (String i : buyers) {
-                    if (i.split(",")[0].equals(username) && i.split(",")[1].equals(password)) {
-                        login = 1;
-                        break;
+                    for (String i : buyers) {
+                        if (i.split(",")[0].equals(username) && i.split(",")[1].equals(password)) {
+                            login = 1;
+                            break;
+                        }
+                    }
+                } else if (buyer == 2) {
+                    ArrayList<String> sellers = b.findSellers();
+
+                    for (String i : sellers) {
+                        if (i.split(",")[0].equals(username) && i.split(",")[1].equals(password)) {
+                            login = 2;
+                            break;
+                        }
                     }
                 }
-            } else if (buyer == 2) {
-                ArrayList<String> sellers = b.findSellers();
-
-                for (String i : sellers) {
-                    if (i.split(",")[0].equals(username) && i.split(",")[1].equals(password)) {
-                        login = 2;
-                        break;
-                    }
+                if (login == 1)
+                    System.out.println("Successfully logged in as a buyer! ");
+                else if (login == 2)
+                    System.out.println("Successfully logged in as a seller! ");
+                else {
+                    System.out.println("Failure to log in. \n");
+                    IntroSequences is = new IntroSequences();
                 }
-            }
-            if (login == 1)
-                System.out.println("buyer success");
-            else if (login == 2)
-                System.out.println("seller success");
-            else
-                System.out.println("failure");
 
-        }
-        else if (s.nextInt() == 2) {
-            s.nextLine();
-            System.out.println("If you want to make a buyer account, enter 1. \nIf you are want to make a " +
-                    "seller account, enter 2.");
-            int buyer = s.nextInt();
-            s.nextLine();
 
-            String finalUser;
-            String finalPass;
+            } else if (create == 2) {
+                System.out.println("If you want to make a buyer account, enter 1. \nIf you are want to make a " +
+                        "seller account, enter 2.");
+                int buyer = s.nextInt();
+                s.nextLine();
 
-            if (buyer == 1) {
                 System.out.println("Please enter your new username: ");
                 String usernameNew = s.nextLine();
-                while (!((boolean) verify(usernameNew, false, false)[1])) {
+                while (!((boolean) verify(usernameNew)[1])) {
                     System.out.println("That username is taken! ");
+                    System.out.println("Please enter another username. ");
+                    usernameNew = s.nextLine();
                 }
-                finalUser = (String) verify(usernameNew, false, false)[0];
+                username = (String) verify(usernameNew)[0];
 
                 System.out.println("Please enter your new password: ");
-                String passwordNew = s.nextLine();
-                while (!((boolean) verify(passwordNew, false, true)[1])) {
-                    System.out.println("That password is taken! ");
+                password = s.nextLine();
+                String store = "";
+                if (buyer == 2) {
+                    System.out.println("What store do you represent? ");
+                    store = s.nextLine();
                 }
-                finalPass = (String) verify(passwordNew, false, true)[0];
-            }
-            else if (buyer == 2) {
-                System.out.println("Please enter your new username: ");
-                String usernameNew = s.nextLine();
-                while (!((boolean) verify(usernameNew, true, false)[1])) {
-                    System.out.println("That username is taken! ");
-                }
-                finalUser = (String) verify(usernameNew, true, false)[0];
 
-                System.out.println("Please enter your new password: ");
-                String passwordNew = s.nextLine();
-                while (!((boolean) verify(passwordNew, true, true)[1])) {
-                    System.out.println("That password is taken! ");
-                }
-                finalPass = (String) verify(passwordNew, true, true)[0];
+                System.out.println("Account created successfully! ");
+                if (buyer == 1)
+                    pw.write(username + "," + password + ",buyer");
+                if (buyer == 2)
+                    pw.write(username + "," + password + ",seller," + store);
+                pw.flush();
             }
+        } catch (Exception e) {
+            System.out.println("Something went wrong. Please try again. ");
         }
     }
 
@@ -106,36 +108,35 @@ public class IntroSequences {
         IntroSequences is = new IntroSequences();
     }
 
-    public Object[] verify(String test, boolean seller, boolean password) {
+    public Object[] verify(String test) {
         Buyer b = new Buyer("src/SampleDatabase.txt");
         Seller se = new Seller("src/SampleDatabase.txt");
-        boolean success = false;
+        ArrayList<String> takenLines = b.findBuyers();
+        takenLines.addAll(se.findSellers());
+        for (String i : takenLines) {
+            if (i.split(",")[0].equals(test))
+                return new Object[]{test, false};
 
-        if (!seller) {
-            ArrayList<String> takenLines = b.findBuyers();
-            for (String i : takenLines) {
-                if (!password && i.split(",")[0].equals(test)) {
-                    return new Object[]{test, false};
-                } else if (password && i.split(",")[1].equals(test)) {
-                    return new Object[]{test, false};
-                }
-            }
-            return new Object[]{test, true};
         }
-        else if (seller) {
-            ArrayList<String> takenLines = b.findSellers();
-            for (String i : takenLines) {
-                if (!password && i.split(",")[0].equals(test)) {
-                    return new Object[]{test, false};
-                } else if (password && i.split(",")[1].equals(test)) {
-                    return new Object[]{test, false};
-                }
-            }
-            return new Object[]{test, true};
-        }
-
-        return new Object[0];
+        return new Object[]{test, true};
     }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+}
 
 //  public static void test() {
 //
@@ -146,4 +147,4 @@ public class IntroSequences {
 //
 //  }
 
-}
+
