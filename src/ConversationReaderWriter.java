@@ -162,6 +162,32 @@ public class ConversationReaderWriter {
                 tempFile.add(br.readLine());
 
                 while (!tempFile.get(tempFile.size() - 1).equals("-----")) {
+                    if (tempFile.size() > 2) {
+                        String currentLine = tempFile.get(tempFile.size() - 1);
+                        String[] storeLine = currentLine.split(", ");
+                        String changingLine = "";
+                        if (storeLine[0].equals(store)) {
+                            changingLine += storeLine[0] + ", ";
+                            String[] sentUsers = storeLine[1].split("; ");
+                            boolean found = false;
+                            for (int j = 0; j < sentUsers.length; j++) {
+                                String[] currentSentUser = sentUsers[j].split(":");
+                                if (currentSentUser[0].equals(myUser)) {
+                                    changingLine += currentSentUser[0] + ":" + (Integer.parseInt(currentSentUser[1]) + 1);
+                                    found = true;
+                                } else {
+                                    changingLine += sentUsers[j];
+                                }
+                                if (j < sentUsers.length - 1) {
+                                    changingLine += "; ";
+                                }
+                            }
+                            if (!found) {
+                                changingLine += "; " + myUser + ":1";
+                            }
+                            tempFile.set(tempFile.size() - 1, changingLine);
+                        }
+                    }
                     tempFile.add(br.readLine());
                 }
 
@@ -233,6 +259,32 @@ public class ConversationReaderWriter {
             tempFile.add(br.readLine());
 
             while (!tempFile.get(tempFile.size() - 1).equals("-----")) {
+                if (tempFile.size() > 2) {
+                    String currentLine = tempFile.get(tempFile.size() - 1);
+                    String[] storeLine = currentLine.split(", ");
+                    String changingLine = "";
+                    if (storeLine[0].equals(store)) {
+                        changingLine += storeLine[0] + ", ";
+                        String[] sentUsers = storeLine[1].split("; ");
+                        boolean found = false;
+                        for (int j = 0; j < sentUsers.length; j++) {
+                            String[] currentSentUser = sentUsers[j].split(":");
+                            if (currentSentUser[0].equals(myUser)) {
+                                changingLine += currentSentUser[0] + ":" + (Integer.parseInt(currentSentUser[1]) + 1);
+                                found = true;
+                            } else {
+                                changingLine += sentUsers[j];
+                            }
+                            if (j < sentUsers.length - 1) {
+                                changingLine += "; ";
+                            }
+                        }
+                        if (!found) {
+                            changingLine += "; " + myUser + ":1";
+                        }
+                        tempFile.set(tempFile.size() - 1, changingLine);
+                    }
+                }
                 tempFile.add(br.readLine());
             }
 
@@ -473,26 +525,32 @@ public class ConversationReaderWriter {
         return messages;
     }
 
-    public static void main(String[] args) {
-        ConversationReaderWriter c1 = new ConversationReaderWriter("SampleBuyer", "SampleSeller", "general");
-        String[] recievedMessages = c1.getMessages();
-        if (recievedMessages != null) {
-            for (int i = 0; i < recievedMessages.length; i++) {
-                System.out.println(recievedMessages[i]);
-            }
-        } else {
-            System.out.println("null");
-        }
-        c1.deleteMessage(1);
 
-        recievedMessages = c1.readMessages();
+
+
+
+
+
+    public static void main(String[] args) {
+        ConversationReaderWriter c1 = new ConversationReaderWriter("SampleBuyer2", "SampleSeller", "store1");
+        //String[] recievedMessages = c1.getMessages();
+        /*if (recievedMessages != null) {
+            for (int i = 0; i < recievedMessages.length; i++) {
+                System.out.println(recievedMessages[i]);
+            }
+        } else {
+            System.out.println("null");
+        }*/
+        //c1.deleteMessage(1);
+
+        /*recievedMessages = c1.readMessages();
         if (recievedMessages != null) {
             for (int i = 0; i < recievedMessages.length; i++) {
                 System.out.println(recievedMessages[i]);
             }
         } else {
             System.out.println("null");
-        }
+        }*/
         /*System.out.println(c1.invisibleMessage("SNEEKY"));
         ConversationReaderWriter c2 = new ConversationReaderWriter("SampleSeller", "SampleBuyer", "general");
         String[] recievedMessages = c2.getMessages();
@@ -513,7 +571,7 @@ public class ConversationReaderWriter {
         } else {
             System.out.println("null");
         }*/
-        //c1.writeMessage("Attempt3");
+        c1.invisibleMessage("Attempt3");
 
     }
 }

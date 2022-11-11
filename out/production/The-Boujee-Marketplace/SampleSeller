@@ -1,11 +1,13 @@
 SampleSeller, SampleUser@gmail.com
 Store1,store2,store3
-store1, SampleBuyer1; SampleBuyer2; SampleBuyer3
-store2, SampleBuyer3; SampleBuyer5; SampleBuyer6
-store3; SampleBuyer2; SampleBuyer3; SampleBuyer4; SampleBuyer5; SampleBuyer6
+store1, SampleBuyer1:8; SampleBuyer2:4; SampleBuyer3:5; SampleBuyer:3
+store2, SampleBuyer3:3; SampleBuyer5:6; SampleBuyer6:2
+store3, SampleBuyer2:1; SampleBuyer3:3; SampleBuyer4:5; SampleBuyer5:1; SampleBuyer6:3
 [cats, ****],[jewels, rocks]
 -----
 3, buyerUsername, store1, [buyerUsername;false;7:08 Tuesday...;Hey Bob how are o..],[SampleSeller;false;7:08 Tuesday...;Hey Bob how are o..],[SampleSeller;false;7:08 Tuesday...;Hey Bob how are o..]
 3, buyerUsername2, store1, [buyerUsername;false;7:08 Tuesday...;Hey Bob how are o..],[SampleSeller;false;7:08 Tuesday...;Hey Bob how are o..],[SampleSeller;false;7:08 Tuesday...;Hey Bob how are o..]
 3, buyerUsername3, store1, [buyerUsername;false;7:08 Tuesday...;Hey Bob how are o..],[SampleSeller;false;7:08 Tuesday...;Hey Bob how are o..],[SampleSeller;false;7:08 Tuesday...;Hey Bob how are o..]
-4, SampleBuyer, general, [SampleBuyer;false;11/09/2022 21:59:32;Attempt0],[SampleBuyer;false;11/09/2022 21:59:32;Attempt2],[SampleBuyer;false;11/11/2022 02:37:37;Attempt4]
+4, SampleBuyer, general, [SampleBuyer;false;11/09/2022 21:59:32;Attempt0],[SampleBuyer;deleted;11/09/2022 21:59:32;Attempt2],[SampleBuyer;false;11/11/2022 02:37:37;Attempt4]
+3, SampleBuyer, store1, [SampleBuyer;false;11/11/2022 13:17:26;Attempt3],[SampleBuyer;false;11/11/2022 13:17:34;Attempt3],[SampleBuyer;/false;11/11/2022 13:19:15;Attempt3]
+1, SampleBuyer2, store1, [SampleBuyer2;/false;11/11/2022 13:19:35;Attempt3]
