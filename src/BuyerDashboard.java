@@ -54,7 +54,7 @@ public class BuyerDashboard {
             int endIndex = fileContents.get(i).indexOf(":");
             stores.add(unsortedSellers.get(i).substring(startIndex + 2, endIndex));
         }
-
+        //return null;
     }
 
     ArrayList<String> unsortedSellers = new ArrayList<String>();
