@@ -272,9 +272,93 @@ public class ConversationReaderWriter {
         }
     }
 
-    public boolean editMessage(int one, String message) {
+    public boolean editMessage(int messageToChange, String newMessage) {
+        try {
+            File f;
+            BufferedReader br;
+            PrintWriter pw;
+            PrintWriter clearer;
+            String isRead;
+            for (int i = 0; i < 2; i++) {
+                if (i == 0) {
+                    f = new File(myUser);
+                    isRead = "true";
+                } else {
+                    f = new File(recievingUser);
+                    isRead = "false";
+                }
+                br = new BufferedReader(new FileReader(f));
+                ArrayList<String> tempFile = new ArrayList<String>();
+                tempFile.add(br.readLine());
 
-        return true;
+                while (!tempFile.get(tempFile.size() - 1).equals("-----")) {
+                    tempFile.add(br.readLine());
+                }
+
+                tempFile.add(br.readLine());
+                boolean found = false;
+                while (tempFile.get(tempFile.size() - 1) != null) {
+                    String[] oneLine = tempFile.get(tempFile.size() - 1).split(", ");
+                    boolean correctPerson;
+                    if (isRead.equals("true")) {
+                        correctPerson = oneLine[1].equals(recievingUser);
+                    } else {
+                        correctPerson = oneLine[1].equals(myUser);
+                    }
+                    if (correctPerson && oneLine[2].equals(store)) {
+                        found = true;
+                        String makeNewLine = "";
+                        String lineToChange = tempFile.get(tempFile.size() - 1);
+                        makeNewLine += lineToChange.split(", ")[0] + ", " + lineToChange.split(", ")[1] + ", " + lineToChange.split(", ")[2] + ", ";
+                        String[] messagesPart = lineToChange.split(", ")[3].split("],\\[");
+                        for (int j = 0; j < messageToChange; j++) {
+                            if (j > 0) {
+                                makeNewLine += "],[";
+                            }
+                            makeNewLine += messagesPart[j];
+                        }
+                        String linePieceToChange = messagesPart[messageToChange];
+                        String[] changingLine = linePieceToChange.split(";");
+                        changingLine[3] = newMessage;
+                        for (int j = 0; j < changingLine.length; j++) {
+                            if (j > 0) {
+                                makeNewLine += ";";
+                            }
+                            makeNewLine += changingLine[j];
+                        }
+                        for (int j = messageToChange; j < messagesPart.length; j++) {
+                            makeNewLine += "],[" + messagesPart[j];
+                            if (j < messagesPart.length - 1) {
+                                makeNewLine += "],[";
+                            }
+                        }
+                        if (makeNewLine.charAt(makeNewLine.length() - 1) != ']') {
+                            makeNewLine += "]";
+                        }
+                        tempFile.set(tempFile.size() - 1, makeNewLine);
+                    }
+                    tempFile.add(br.readLine());
+                }
+                if (tempFile.get(tempFile.size() - 1) == null) {
+                    tempFile.remove(tempFile.size() - 1);
+                }
+                br.close();
+
+                clearer = new PrintWriter(new FileOutputStream(f, false));
+                clearer.print("");
+                clearer.close();
+
+                pw = new PrintWriter(new FileOutputStream(f, true));
+                for (int j = 0; j < tempFile.size(); j++) {
+                    pw.println(tempFile.get(j));
+                }
+                pw.close();
+            }
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
     public boolean deleteMessage(String message) {
@@ -287,16 +371,16 @@ public class ConversationReaderWriter {
 
     public static void main(String[] args) {
         ConversationReaderWriter c1 = new ConversationReaderWriter("SampleBuyer", "SampleSeller", "general");
-        /*String[] recievedMessages = c1.getMessages();
+        String[] recievedMessages = c1.getMessages();
         if (recievedMessages != null) {
             for (int i = 0; i < recievedMessages.length; i++) {
                 System.out.println(recievedMessages[i]);
             }
         } else {
             System.out.println("null");
-        }*/
+        }
 
-        System.out.println(c1.invisibleMessage("SNEEKY"));
+        /*System.out.println(c1.invisibleMessage("SNEEKY"));
         ConversationReaderWriter c2 = new ConversationReaderWriter("SampleSeller", "SampleBuyer", "general");
         String[] recievedMessages = c2.getMessages();
         if (recievedMessages != null) {
@@ -305,6 +389,17 @@ public class ConversationReaderWriter {
             }
         } else {
             System.out.println("null");
+        }*/
+
+        c1.editMessage(1,"edited11");
+        recievedMessages = c1.readMessages();
+        if (recievedMessages != null) {
+            for (int i = 0; i < recievedMessages.length; i++) {
+                System.out.println(recievedMessages[i]);
+            }
+        } else {
+            System.out.println("null");
         }
+
     }
 }
