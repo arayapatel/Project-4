@@ -109,14 +109,35 @@ public class ConversationReaderWriter {
                 String[] splitMessage = messages[i].split(";");
                 if (!(splitMessage[1].charAt(0) == '/')) {
                     if (changingLine.length() == 0) {
-                        changingLine += tempFile.get(tempFile.size() - 1).split(", ")[0] + ", " + tempFile.get(tempFile.size() - 1).split(", ")[1] + ", " + tempFile.get(tempFile.size() - 1).split(", ")[2] + ", ";
+                        changingLine += "0, " + tempFile.get(tempFile.size() - 1).split(", ")[1] + ", " + tempFile.get(tempFile.size() - 1).split(", ")[2] + ", ";
                     }
                     String tempLine = tempFile.get(tempFile.size() - 1).split(", ")[3];
-                    changingLine += tempLine.substring(0,tempLine.length() - 1).split("],\\[")[i] + "],[";
+                    String[] splitTempLine = tempLine.substring(0, tempLine.length() - 1).split("],\\[");
+                    for (int j = 0; j < splitTempLine.length; j++) {
+                        String[] individualMessages = splitTempLine[j].split(";");
+                        if (individualMessages[1].equals("false")) {
+                            individualMessages[1] = "true";
+                            splitTempLine[j] = "";
+                            for (int k = 0; k < individualMessages.length; k++) {
+                                if (k > 0) {
+                                    splitTempLine[j] += ";";
+                                }
+                                splitTempLine[j] += individualMessages[k];
+                            }
+                        }
+                    }
+                    if (!((splitTempLine[i] + "],[").charAt(0) == '[')) {
+                        changingLine += "[";
+                    }
+                    changingLine += splitTempLine[i] + "],";
                     didChange = true;
                 }
             }
-            tempFile.set(tempFile.size() - 1, changingLine.substring(0,changingLine.length() - 3) + "]");
+            if (changingLine.length() > 0) {
+                tempFile.set(tempFile.size() - 1, changingLine.substring(0, changingLine.length() - 2) + "]");
+            } else {
+                tempFile.remove(tempFile.size() - 1);
+            }
 
             while (tempFile.get(tempFile.size() - 1) != null) {
                 tempFile.add(br.readLine());
@@ -532,15 +553,15 @@ public class ConversationReaderWriter {
 
 
     public static void main(String[] args) {
-        ConversationReaderWriter c1 = new ConversationReaderWriter("SampleBuyer2", "SampleSeller", "store1");
-        //String[] recievedMessages = c1.getMessages();
-        /*if (recievedMessages != null) {
+        ConversationReaderWriter c1 = new ConversationReaderWriter("SampleBuyer", "SampleSeller", "store1");
+        String[] recievedMessages = c1.getMessages();
+        if (recievedMessages != null) {
             for (int i = 0; i < recievedMessages.length; i++) {
                 System.out.println(recievedMessages[i]);
             }
         } else {
             System.out.println("null");
-        }*/
+        }
         //c1.deleteMessage(1);
 
         /*recievedMessages = c1.readMessages();
@@ -571,7 +592,7 @@ public class ConversationReaderWriter {
         } else {
             System.out.println("null");
         }*/
-        c1.invisibleMessage("Attempt3");
+        //c1.invisibleMessage("Attempt3");
 
     }
 }
