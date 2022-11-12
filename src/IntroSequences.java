@@ -16,6 +16,7 @@ public class IntroSequences {
 
     private String username;
     private String password;
+    private String type;
 
     public IntroSequences() {
         try {
@@ -59,10 +60,14 @@ public class IntroSequences {
                         }
                     }
                 }
-                if (login == 1)
+                if (login == 1) {
                     System.out.println("Successfully logged in as a buyer! ");
-                else if (login == 2)
+                    this.type = "Buyer";
+                }
+                else if (login == 2) {
                     System.out.println("Successfully logged in as a seller! ");
+                    this.type = "Seller";
+                }
                 else {
                     System.out.println("Failure to log in. \n");
                     IntroSequences is = new IntroSequences();
@@ -74,6 +79,12 @@ public class IntroSequences {
                         "seller account, enter 2.");
                 int buyer = s.nextInt();
                 s.nextLine();
+
+                if (buyer == 1) {
+                    this.type = "Buyer";
+                } else if (buyer == 2) {
+                    this.type = "Seller";
+                }
 
                 System.out.println("Please enter your new username: ");
                 String usernameNew = s.nextLine();
@@ -135,6 +146,10 @@ public class IntroSequences {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getType() {
+        return type;
     }
 }
 
