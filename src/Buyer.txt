@@ -2,3 +2,4 @@ Buyer1; totalMessages
 Buyer2; totalMessages
 Buyer3; totalMessages
 Buyer4; totalMessages
+SellerMan;0

@@ -1,1 +1,3 @@
-RandomPerson,RandomPass,seller,AliBaba
+HappyPerson,happyPass,buyer
+SellerMan,sellerPass,buyer
+SellerFrThisTime,SellerPass,seller,flower;costs;coats

@@ -37,7 +37,6 @@ public class IntroSequences {
             s.nextLine();
 
             if (create == 1) {
-                s.nextLine();
                 System.out.println("If you are a buyer, enter 1. \nIf you are a seller, enter 2.");
                 int buyer = s.nextInt();
                 s.nextLine();
