@@ -1,3 +1,38 @@
 HappyPerson,happyPass,buyer
 SellerMan,sellerPass,buyer
 SellerFrThisTime,SellerPass,seller,flower;costs;coats
+<<<<<<< HEAD
+arapat1,answer67,buyer
+arapat2,answer67,buyer
+arapat3,answer67,buyer
+arapat4,answer67,buyer
+arapat5,answer67,buyer
+arapat6,answer67,buyer
+arapat7,answer67,buyer
+arapat8,answer67,buyer
+arapat9,answer67,buyer
+arapat10,answer67,buyer
+arapat11,answer67,buyer
+arapat12,answer67,buyer
+arapat13,answer67,buyer
+arapat15,answer67,buyer
+arapat16,answer67,buyer
+arapat17,answer67,buyer
+arapat18,answer67,buyer
+arapat19,answer67,buyer
+arapat20,answer67,buyer
+arapat21,answer67,buyer
+arapat22,answer6,buyer
+arapat24,answer67,buyer
+arapat25,answer67,buyer
+arapat30,answer67,seller,amazon; facebook
+arapat26,answer67,buyer
+arapat31,answer67,buyer
+arapat32,answer67,buyer
+=======
+BuyingMan,password,seller,ipads;laptops;phones;apple
+John,WOooo,buyer
+>>>>>>> b52523442be7d1c1bbeb3eea1e9d4601ee869af0
+
+arapat1,answer67,buyer
+arapat2,answer67,buyer

@@ -1,10 +1,13 @@
 package src;
 
+import com.sun.jdi.InvalidTypeException;
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class IntroSequences {
@@ -54,6 +57,8 @@ public class IntroSequences {
                     for (String i : buyers) {
                         if (i.split(",")[0].equals(username) && i.split(",")[1].equals(password)) {
                             login = 1;
+                            this.username = username;
+                            this.password = password;
                             break;
                         }
                     }
@@ -63,6 +68,8 @@ public class IntroSequences {
                     for (String i : sellers) {
                         if (i.split(",")[0].equals(username) && i.split(",")[1].equals(password)) {
                             login = 2;
+                            this.username = username;
+                            this.password = password;
                             break;
                         }
                     }
@@ -132,7 +139,7 @@ public class IntroSequences {
                     store = s.nextLine();
                     for (char i : store.toCharArray()) {
                         if (i == ',')
-                            stores += ";";
+                            stores += ",";
                         else
                             stores += i;
                     }
@@ -141,18 +148,20 @@ public class IntroSequences {
                 if (buyer == 1) {
                     pw.write(username + "," + password + ",buyer");
                     pwBuyer.println();
-                    pwBuyer.write(username + ";" + 0);
+                    pwBuyer.write(username + "; " + 0);
                     pwBuyer.flush();
                 }
                 else if (buyer == 2) {
                     pw.write(username + "," + password + ",seller," + stores);
                     pwSeller.println();
-                    pwSeller.write(username + "; stores: " + stores + ", " + 0);
+                    pwSeller.write(username + "; " + stores + ": " + 0);
                     pwSeller.flush();
                 }
                 pw.flush();
                 System.out.println("Account created successfully! ");
             }
+        } catch (InputMismatchException ime) {
+            new IntroSequences();
         } catch (Exception e) {
             System.out.println("Something went wrong. Please try again. ");
         }
