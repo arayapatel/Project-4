@@ -1,6 +1,9 @@
 HappyPerson,happyPass,buyer
 SellerMan,sellerPass,buyer
 SellerFrThisTime,SellerPass,seller,flower;costs;coats
+<<<<<<< HEAD
+BuyingMan,password,seller,ipads;laptops;phones;apple
+=======
 arapat1,answer67,buyer
 arapat2,answer67,buyer
 arapat3,answer67,buyer
@@ -16,3 +19,4 @@ arapat12,answer67,buyer
 arapat13,answer67,buyer
 arapat15,answer67,buyer
 arapat16,answer67,buyer
+>>>>>>> 37625b9b661fdc154678662398c56d4bd3c7b835
