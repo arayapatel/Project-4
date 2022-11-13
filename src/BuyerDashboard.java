@@ -177,7 +177,7 @@ public class BuyerDashboard {
                         indexOfSeller = i;
                     }
                 }
-                if (found) {
+                if (found == false) {
                     System.out.println("The seller was found");
                 } else {
                     System.out.println("Seller was not found, try again.");
