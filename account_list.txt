@@ -37,3 +37,16 @@ John,WOooo,buyer
 arapat1,answer67,buyer
 arapat2,answer67,buyer
 arapat3,answer67,buyer
+arapat100,answer67,seller,amazon, facebook
+arapat5,answer67,buyer
+arapat6,answer67,buyer
+arapat7,answer67,buyer
+arapat8,answer67,buyer
+arapat34,answer67,buyer
+arapat35,answer67,buyer
+arapat35,answer67,buyer
+arapat54,answer67,buyer
+arapat36,answer67,buyer
+arapat60,answer67,buyer
+arapat59,asnwer67,buyer
+arapat50,answer67,buyer

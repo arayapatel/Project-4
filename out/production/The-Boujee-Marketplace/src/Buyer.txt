@@ -18,3 +18,15 @@ arapat32;0
 
 arapat1; 0
 arapat2; 0
+arapat3; 0
+arapat5; 0
+arapat6; 0
+arapat7; 0
+arapat8; 0
+arapat34; 0
+arapat35; 0
+arapat35; 0
+arapat54; 0
+arapat36; 0
+arapat60; 0
+arapat59; 0

@@ -35,7 +35,7 @@ public class BuyerDashboard {
     }
    // Conversation conversation = new Conversation(scan, userName, fileName, recipient, store);
     ArrayList<String> stores = new ArrayList<String>();
-    public void readStores() {
+    /*public void readStores() {
 
         ArrayList<String> fileContents = new ArrayList<String>();
         try {
@@ -56,41 +56,48 @@ public class BuyerDashboard {
         }
 
         //return null;
-    }
+    }*/
 
-    ArrayList<String> unsortedSellers = new ArrayList<String>();
+    ArrayList<String> fileContents = new ArrayList<String>();
     ArrayList<Integer> totalMess = new ArrayList<Integer>();
     public void totalMessages() {
         try {
             BufferedReader bfr = new BufferedReader(new FileReader("src/Seller.txt"));
             String line = bfr.readLine();
             while (line != null) {
-                unsortedSellers.add(line);
+                fileContents.add(line);
                 line = bfr.readLine();
             }
             bfr.close();
-            for (int i = 0; i < unsortedSellers.size(); i++) {
-                int index = unsortedSellers.get(i).indexOf(":");
-                totalMess.add(Integer.parseInt(unsortedSellers.get(i).substring(index + 2)));
+            for (int i = 0; i < fileContents.size(); i++) {
+                int index = fileContents.get(i).indexOf(":");
+                totalMess.add(Integer.parseInt(fileContents.get(i).substring(index + 2)));
+                int startIndex = fileContents.get(i).indexOf(";");
+                int endIndex = fileContents.get(i).indexOf(":");
+                stores.add(unsortedSellers.get(i).substring(startIndex + 1, endIndex));
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
     ArrayList<String> sortedSellers = new ArrayList<String>();
+    ArrayList<String> unsortedSellers = new ArrayList<String>();
     ArrayList<String> sortedStores = new ArrayList<String>();
     public void sort() {
         totalMessages();
         Collections.sort(totalMess, Collections.reverseOrder());
         for (int i = 0; i < totalMess.size(); i++) {
-            for (int j = 0; j < unsortedSellers.size(); j++) {
-                int index = unsortedSellers.get(i).indexOf(":");
-                if((Integer.parseInt(unsortedSellers.get(i).substring(index + 2))) == totalMess.get(i)) {
-                    int ind = unsortedSellers.get(i).indexOf(";");
-                    int endInd = unsortedSellers.get(i).indexOf(":");
-                    sortedSellers.add(unsortedSellers.get(i).substring(0, ind));
-                    sortedStores.add(unsortedSellers.get(i).substring(ind + 2, endInd));
+            for (int j = 0; j < fileContents.size(); j++) {
+                int index = fileContents.get(i).indexOf(":");
+                if((Integer.parseInt(fileContents.get(i).substring(index + 2))) == totalMess.get(i)) {
+                    int ind = fileContents.get(i).indexOf(";");
+                    int endInd = fileContents.get(i).indexOf(":");
+                    sortedSellers.add(fileContents.get(i).substring(0, ind));
+                    sortedStores.add(fileContents.get(i).substring(ind + 2, endInd));
                 }
+                int ind = fileContents.get(i).indexOf(";");
+                int endInd = fileContents.get(i).indexOf(":");
+                unsortedSellers.add(fileContents.get(i).substring(0, ind));
             }
         }
     }
@@ -134,14 +141,15 @@ public class BuyerDashboard {
 
     public void forward() {
         //startMessage();
-        totalMessages();
+        //totalMessages();
+        sort();
         if (response == 1) {
             ArrayList<String> allStores = new ArrayList<String>();
-            readStores();
+           //readStores();
             System.out.println("Would you like to sort the sellers by their popularity?\n1.) Yes\n2.) No ");
             int resp = scan.nextInt();
             if (resp == 1) {
-                sort();
+                //sort();
                 for (int i = 0; i < sortedSellers.size(); i++) {
                     System.out.println(sortedSellers.get(i));
                     System.out.println("Their stores: ");
@@ -158,9 +166,9 @@ public class BuyerDashboard {
             String ans = scan.next();
             if (ans.equals("yes") || ans.equals("Yes")) {
                 System.out.println("Which store?");
-                store = scan.nextLine();
+                store = scan.next();
                 System.out.println("Who is the owner of this store?");
-                recipient = scan.nextLine();
+                recipient = scan.next();
                 Conversation conversation = new Conversation(scan, userName, fileName, recipient, store);
             }
         }

@@ -4,3 +4,5 @@ Seller3; stores: 6
 Seller4; stores: 7
 
 
+
+arapat100; amazon, facebook: 0
