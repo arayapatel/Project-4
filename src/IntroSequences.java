@@ -11,7 +11,8 @@ public class IntroSequences {
 
     //  Format:
     //    username, password, buyer
-    //    username, password, seller, store
+    //    username, password, seller, stores
+    //    stores format: Store1; Store2; Store 3
 
 
     // I am become procrastination, destroyer of grades.
