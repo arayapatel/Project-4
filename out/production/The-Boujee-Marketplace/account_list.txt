@@ -1,3 +1,4 @@
 HappyPerson,happyPass,buyer
 SellerMan,sellerPass,buyer
 SellerFrThisTime,SellerPass,seller,flower;costs;coats
+BuyingMan,password,seller,ipads;laptops;phones;apple
