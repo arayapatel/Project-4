@@ -1,4 +1,4 @@
 SampleBuyer, SampleUser@gmail.com
 -----
-3, SampleSeller, store1, [SampleBuyer;false;11/09/2022 21:59:32;Attempt1]
-3, SampleSeller, general, [SampleBuyer;false;11/09/2022 21:59:32;edited11],[SampleBuyer;false;11/09/2022 21:59:32;edited11]
+0, SampleSeller, store1, [SampleBuyer;true;11/09/2022 21:59:32;Attempt0],[SampleBuyer;true;11/09/2022 21:59:32;Attempt2],[SampleBuyer;true;11/11/2022 02:37:37;Attempt4]
+3, SampleSeller, general, [SampleBuyer;false;11/09/2022 21:59:32;Attempt0],[SampleBuyer;deleted;11/09/2022 21:59:32;Attempt2],[SampleBuyer;true;11/11/2022 02:37:37;Attempt4]
