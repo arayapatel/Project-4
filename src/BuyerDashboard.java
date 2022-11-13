@@ -121,12 +121,12 @@ public class BuyerDashboard {
 
     }
     public void startMessage() {
-        String print = String.format("Welcome to the Buyer Dashboard!\nChoose what you would like to do\n\n" +
-                                     "1.) View/Send to stores\n" +
-                                     "2.) Search for a seller\n" +
-                                     "3.) Add a new censor\n" +
-                                     "4.) Export\n" +
-                                     "5.) Exit\n");
+        String print = String.format("Welcome to the Buyer Dashboard!\nChoose what you would like to do\n" +
+                                     "1) View/Send to stores\n" +
+                                     "2) Search for a seller\n" +
+                                     "3) Add a new censor\n" +
+                                     "4) Export\n" +
+                                     "5) Exit\n");
         System.out.println(print);
         response = scan.nextInt();
     }
