@@ -139,7 +139,7 @@ public class IntroSequences {
                     store = s.nextLine();
                     for (char i : store.toCharArray()) {
                         if (i == ',')
-                            stores += ";";
+                            stores += ",";
                         else
                             stores += i;
                     }
@@ -148,13 +148,13 @@ public class IntroSequences {
                 if (buyer == 1) {
                     pw.write(username + "," + password + ",buyer");
                     pwBuyer.println();
-                    pwBuyer.write(username + ";" + 0);
+                    pwBuyer.write(username + "; " + 0);
                     pwBuyer.flush();
                 }
                 else if (buyer == 2) {
                     pw.write(username + "," + password + ",seller," + stores);
                     pwSeller.println();
-                    pwSeller.write(username + ";" + stores + ":" + 0);
+                    pwSeller.write(username + "; " + stores + ": " + 0);
                     pwSeller.flush();
                 }
                 pw.flush();
