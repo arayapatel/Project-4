@@ -1,6 +1,15 @@
+<<<<<<< HEAD
 Seller1; stores: 4
 Seller2; stores: 5
 Seller3; stores: 6
 Seller4; stores: 7
 
 arapat30;amazon; facebook:0
+=======
+Seller1; stores: totalMessages
+Seller2; stores: totalMessages
+Seller3; stores: totalMessages
+Seller4; stores: totalMessages
+SellerFrThisTime; stores: flower;costs;coats, 0
+BuyingMan; stores: ipads;laptops;phones;apple, 0
+>>>>>>> b52523442be7d1c1bbeb3eea1e9d4601ee869af0
