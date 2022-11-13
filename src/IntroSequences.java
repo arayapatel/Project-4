@@ -54,6 +54,8 @@ public class IntroSequences {
                     for (String i : buyers) {
                         if (i.split(",")[0].equals(username) && i.split(",")[1].equals(password)) {
                             login = 1;
+                            this.username = username;
+                            this.password = password;
                             break;
                         }
                     }
@@ -63,6 +65,8 @@ public class IntroSequences {
                     for (String i : sellers) {
                         if (i.split(",")[0].equals(username) && i.split(",")[1].equals(password)) {
                             login = 2;
+                            this.username = username;
+                            this.password = password;
                             break;
                         }
                     }
