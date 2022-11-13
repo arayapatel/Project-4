@@ -46,7 +46,7 @@ public class ConversationReaderWriter {
                         messages[messages.length - 1] = messages[messages.length - 1].substring(0, messages[messages.length - 1].length() - 1);
                         if (this.checkInvisibleMessage(i)) {
                             for (int j = 0; j < messages.length; j++) {
-                                String[] linePieces = messages[j].split(";");
+                                String[] linePieces = messages[j].split(";", 3);
                                 if (linePieces[1].charAt(0) == '/') {
                                     linePieces[1] = linePieces[1].substring(1);
                                     line = "";
@@ -65,7 +65,7 @@ public class ConversationReaderWriter {
                     String[] tempFinalMessages = new String[messages.length];
                     int placement = 0;
                     for (int j = 0; j < messages.length; j++) {
-                        if (!messages[j].split(";")[1].equals("deleted")) {
+                        if (!messages[j].split(";", 3)[1].equals("deleted")) {
                             tempFinalMessages[placement] = messages[j];
                             placement++;
                         }
@@ -106,7 +106,7 @@ public class ConversationReaderWriter {
             String[] messages = tempFile.get(tempFile.size() - 1).split(", ")[3].split("],\\[");
             String changingLine = "";
             for (int i = 0; i < messages.length; i++) {
-                String[] splitMessage = messages[i].split(";");
+                String[] splitMessage = messages[i].split(";", 3);
                 if (!(splitMessage[1].charAt(0) == '/')) {
                     if (changingLine.length() == 0) {
                         changingLine += "0, " + tempFile.get(tempFile.size() - 1).split(", ")[1] + ", " + tempFile.get(tempFile.size() - 1).split(", ")[2] + ", ";
@@ -114,7 +114,7 @@ public class ConversationReaderWriter {
                     String tempLine = tempFile.get(tempFile.size() - 1).split(", ")[3];
                     String[] splitTempLine = tempLine.substring(0, tempLine.length() - 1).split("],\\[");
                     for (int j = 0; j < splitTempLine.length; j++) {
-                        String[] individualMessages = splitTempLine[j].split(";");
+                        String[] individualMessages = splitTempLine[j].split(";", 3);
                         if (individualMessages[1].equals("false")) {
                             individualMessages[1] = "true";
                             splitTempLine[j] = "";
@@ -158,7 +158,7 @@ public class ConversationReaderWriter {
             pw.close();
             return didChange;
         } catch (Exception e) {
-            e.printStackTrace();
+            //e.printStackTrace();
             return false;
         }
     }
@@ -261,7 +261,7 @@ public class ConversationReaderWriter {
             }
             return true;
         } catch (Exception e) {
-            e.printStackTrace();
+            //e.printStackTrace();
             return false;
         }
     }
@@ -351,7 +351,7 @@ public class ConversationReaderWriter {
             pw.close();
             return true;
         } catch (Exception e) {
-            e.printStackTrace();
+            //e.printStackTrace();
             return false;
         }
     }
@@ -409,7 +409,7 @@ public class ConversationReaderWriter {
                             makeNewLine = makeNewLine.substring(0, makeNewLine.length() - 1);
                         }
                         String linePieceToChange = messagesPart[messageToChange];
-                        String[] changingLine = linePieceToChange.split(";");
+                        String[] changingLine = linePieceToChange.split(";", 3);
                         changingLine[3] = newMessage;
                         for (int j = 0; j < changingLine.length; j++) {
                             if (j > 0) {
@@ -444,7 +444,7 @@ public class ConversationReaderWriter {
             }
             return true;
         } catch (Exception e) {
-            e.printStackTrace();
+            //e.printStackTrace();
             return false;
         }
     }
@@ -502,7 +502,7 @@ public class ConversationReaderWriter {
                             makeNewLine = makeNewLine.substring(0, makeNewLine.length() - 1);
                         }
                         String linePieceToChange = messagesPart[messageToDelete];
-                        String[] changingLine = linePieceToChange.split(";");
+                        String[] changingLine = linePieceToChange.split(";", 3);
                         changingLine[1] = "deleted";
                         for (int j = 0; j < changingLine.length; j++) {
                             if (j > 0) {
@@ -537,7 +537,7 @@ public class ConversationReaderWriter {
             }
             return true;
         } catch (Exception e) {
-            e.printStackTrace();
+            //e.printStackTrace();
             return false;
         }
     }
@@ -546,53 +546,4 @@ public class ConversationReaderWriter {
         return messages;
     }
 
-
-
-
-
-
-
-    public static void main(String[] args) {
-        ConversationReaderWriter c1 = new ConversationReaderWriter("SampleBuyer", "SampleSeller", "store1");
-        String[] recievedMessages = c1.getMessages();
-        if (recievedMessages != null) {
-            for (int i = 0; i < recievedMessages.length; i++) {
-                System.out.println(recievedMessages[i]);
-            }
-        } else {
-            System.out.println("null");
-        }
-        //c1.deleteMessage(1);
-
-        /*recievedMessages = c1.readMessages();
-        if (recievedMessages != null) {
-            for (int i = 0; i < recievedMessages.length; i++) {
-                System.out.println(recievedMessages[i]);
-            }
-        } else {
-            System.out.println("null");
-        }*/
-        /*System.out.println(c1.invisibleMessage("SNEEKY"));
-        ConversationReaderWriter c2 = new ConversationReaderWriter("SampleSeller", "SampleBuyer", "general");
-        String[] recievedMessages = c2.getMessages();
-        if (recievedMessages != null) {
-            for (int i = 0; i < recievedMessages.length; i++) {
-                System.out.println(recievedMessages[i]);
-            }
-        } else {
-            System.out.println("null");
-        }*/
-
-        /*c1.editMessage(2,"Attempt4");
-        recievedMessages = c1.readMessages();
-        if (recievedMessages != null) {
-            for (int i = 0; i < recievedMessages.length; i++) {
-                System.out.println(recievedMessages[i]);
-            }
-        } else {
-            System.out.println("null");
-        }*/
-        //c1.invisibleMessage("Attempt3");
-
-    }
 }

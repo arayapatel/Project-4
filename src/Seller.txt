@@ -2,7 +2,11 @@ Seller1; stores: 4
 Seller2; stores: 5
 Seller3; stores: 6
 Seller4; stores: 7
+<<<<<<< HEAD
 
 
 
 arapat100; amazon, facebook: 0
+=======
+MtStHelens; volcanoes,ash,death,destruction,lava,magma,rocks: 0
+>>>>>>> 0e78a88508283e7ca8919ee8bdfc59dfb558591e
