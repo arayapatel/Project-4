@@ -3,18 +3,12 @@ Buyer2; totalMessages
 Buyer3; totalMessages
 Buyer4; totalMessages
 SellerMan;0
-arapat1;0
-arapat2;0
-arapat3;0
-arapat4;0
-arapat5;0
-arapat6;0
-arapat7;0
-arapat8;0
-arapat9;0
-arapat10;0
-arapat11;0
-arapat12;0
-arapat13;0
-arapat15;0
-arapat16;0
+
+arapat20;0
+arapat21;0
+arapat22;0
+arapat24;0
+arapat25;0
+arapat26;0
+arapat31;0
+arapat32;0

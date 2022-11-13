@@ -89,16 +89,16 @@ public class SellerDashboard {
     }
     public void startMessage() {
         String print = String.format("Welcome to the Dashboard!\nChoose what you would like to do\n\n" +
-                "1.) View/Send to buyers" +
-                "2.) Search for a buyer" +
-                "3.) Add a new censor" +
-                "4.) Export" +
+                "1.) View/Send to buyers\n" +
+                "2.) Search for a buyer\n" +
+                "3.) Add a new censor\n" +
+                "4.) Export\n" +
                 "5.) Exit\n");
         System.out.println(print);
         response = scan.nextInt();
     }
     public void forward() {
-        startMessage();
+        //startMessage();
         if (response == 1) {
             ArrayList<String> allStores = new ArrayList<String>();
             readBuyers();

@@ -16,3 +16,14 @@ arapat12,answer67,buyer
 arapat13,answer67,buyer
 arapat15,answer67,buyer
 arapat16,answer67,buyer
+arapat17,answer67,buyer
+arapat18,answer67,buyer
+arapat19,answer67,buyer
+arapat20,answer67,buyer
+arapat21,answer67,buyer
+arapat22,answer6,buyer
+arapat24,answer67,buyer
+arapat25,answer67,buyer
+arapat30,answer67,seller,amazon; facebook
+arapat26,answer67,buyer
+arapat31,answer67,buyer
