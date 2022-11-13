@@ -1,3 +1,15 @@
 HappyPerson,happyPass,buyer
 SellerMan,sellerPass,buyer
 SellerFrThisTime,SellerPass,seller,flower;costs;coats
+arapat1,answer67,buyer
+arapat2,answer67,buyer
+arapat3,answer67,buyer
+arapat4,answer67,buyer
+arapat5,answer67,buyer
+arapat6,answer67,buyer
+arapat7,answer67,buyer
+arapat8,answer67,buyer
+arapat9,answer67,buyer
+arapat10,answer67,buyer
+arapat11,answer67,buyer
+arapat12,answer67,buyer

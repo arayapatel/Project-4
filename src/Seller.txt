@@ -1,5 +1,5 @@
-Seller1; stores: totalMessages
-Seller2; stores: totalMessages
-Seller3; stores: totalMessages
-Seller4; stores: totalMessages
+Seller1; stores: 4
+Seller2; stores: 5
+Seller3; stores: 6
+Seller4; stores: 7
 SellerFrThisTime; stores: flower;costs;coats, 0
