@@ -147,7 +147,7 @@ public class IntroSequences {
                 else if (buyer == 2) {
                     pw.write(username + "," + password + ",seller," + stores);
                     pwSeller.println();
-                    pwSeller.write(username + "; stores: " + stores + ", " + 0);
+                    pwSeller.write(username + ";" + stores + ":" + 0);
                     pwSeller.flush();
                 }
                 pw.flush();
