@@ -71,7 +71,7 @@ public class BuyerDashboard {
             bfr.close();
             for (int i = 0; i < unsortedSellers.size(); i++) {
                 int index = unsortedSellers.get(i).indexOf(":");
-                totalMess.add(Integer.parseInt(unsortedSellers.get(i).substring(index + 1)));
+                totalMess.add(Integer.parseInt(unsortedSellers.get(i).substring(index + 2)));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -85,7 +85,7 @@ public class BuyerDashboard {
         for (int i = 0; i < totalMess.size(); i++) {
             for (int j = 0; j < unsortedSellers.size(); j++) {
                 int index = unsortedSellers.get(i).indexOf(":");
-                if((Integer.parseInt(unsortedSellers.get(i).substring(index + 1))) == totalMess.get(i)) {
+                if((Integer.parseInt(unsortedSellers.get(i).substring(index + 2))) == totalMess.get(i)) {
                     int ind = unsortedSellers.get(i).indexOf(";");
                     int endInd = unsortedSellers.get(i).indexOf(":");
                     sortedSellers.add(unsortedSellers.get(i).substring(0, ind));

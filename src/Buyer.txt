@@ -15,3 +15,7 @@ arapat31;0
 arapat32;0
 =======
 >>>>>>> b52523442be7d1c1bbeb3eea1e9d4601ee869af0
+
+arapat1; 0
+arapat2; 0
+arapat3; 0
