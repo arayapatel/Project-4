@@ -23,6 +23,7 @@ public class IntroSequences {
     private String username;
     private String password;
     private String type;
+    private String email;
 
     public IntroSequences() {
         try {
@@ -100,6 +101,9 @@ public class IntroSequences {
                     this.type = "Seller";
                 }
 
+                System.out.println("Please enter your email: ");
+                this.email = s.nextLine();
+
                 System.out.println("Please enter your new username: ");
                 String usernameNew = s.nextLine();
                 boolean go = false;
@@ -150,12 +154,31 @@ public class IntroSequences {
                     pwBuyer.println();
                     pwBuyer.write(username + "; " + 0);
                     pwBuyer.flush();
+                    PrintWriter pwBuyMake = new PrintWriter(
+                            new BufferedWriter(new FileWriter(username + ".txt", false)));
+                    pwBuyMake.write(username+ "," + email);
+                    pwBuyMake.println();
+                    pwBuyMake.write("-----");
+                    pwBuyMake.flush();
                 }
                 else if (buyer == 2) {
                     pw.write(username + "," + password + ",seller," + stores);
                     pwSeller.println();
                     pwSeller.write(username + "; " + stores + ": " + 0);
                     pwSeller.flush();
+                    PrintWriter pwSellMake = new PrintWriter(
+                            new BufferedWriter(new FileWriter(username + ".txt", false)));
+                    pwSellMake.write(username+ "," + email);
+                    pwSellMake.println();
+                    String fileLine = "";
+                    for (int i = 0; i < stores.split(";").length - 1; i++) {
+                        fileLine += stores.split(";")[i] + ",";
+                    }
+                    fileLine += stores.split(";")[stores.split(";").length - 1];
+                    pwSellMake.write(fileLine);
+                    pwSellMake.println();
+                    pwSellMake.write("-----");
+                    pwSellMake.flush();
                 }
                 pw.flush();
                 System.out.println("Account created successfully! ");
