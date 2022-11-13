@@ -31,3 +31,6 @@ arapat32,answer67,buyer
 BuyingMan,password,seller,ipads;laptops;phones;apple
 John,WOooo,buyer
 MtStHelens,boom,seller,volcanoes,ash,death,destruction,lava,magma,rocks
+buyingBuyer,buyingPwd,buyer
+gogog,gogogogo,seller,happiness, going
+Diner,food,buyer
