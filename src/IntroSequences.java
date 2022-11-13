@@ -1,6 +1,8 @@
 package src;
 
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -20,10 +22,15 @@ public class IntroSequences {
 
     public IntroSequences() {
         try {
-            Buyer b = new Buyer("src/SampleDatabase.txt");
-            Seller se = new Seller("src/SampleDatabase.txt");
+            Buyer b = new Buyer("account_list.txt");
+            Seller se = new Seller("account_list.txt");
             System.out.println("To login, enter 1. \nTo create an account, enter 2. ");
-            PrintWriter pw = new PrintWriter(new File("account_list.txt"));
+            PrintWriter pw = new PrintWriter(new BufferedWriter(
+                    new FileWriter("account_list.txt", true)));
+            PrintWriter pwSeller = new PrintWriter(new BufferedWriter(
+                    new FileWriter("src/Seller.txt", true)));
+            PrintWriter pwBuyer = new PrintWriter(new BufferedWriter(
+                    new FileWriter("src/Buyer.txt", true)));
             Scanner s = new Scanner(System.in);
             int create = s.nextInt();
             s.nextLine();
@@ -88,27 +95,63 @@ public class IntroSequences {
 
                 System.out.println("Please enter your new username: ");
                 String usernameNew = s.nextLine();
-                while (!((boolean) verify(usernameNew)[1])) {
-                    System.out.println("That username is taken! ");
-                    System.out.println("Please enter another username. ");
-                    usernameNew = s.nextLine();
+                boolean go = false;
+                while (!go) {
+                    if (!usernameNew.contains(","))
+                        go = true;
+                    else {
+                        System.out.println("Invalid username! ");
+                        System.out.println("Please enter another username. ");
+                        usernameNew = s.nextLine();
+                    }
+                    while (!((boolean) verify(usernameNew)[1])) {
+                        System.out.println("That username is taken! ");
+                        System.out.println("Please enter another username. ");
+                        usernameNew = s.nextLine();
+                    }
                 }
                 username = (String) verify(usernameNew)[0];
-
+                boolean goPass = false;
                 System.out.println("Please enter your new password: ");
                 password = s.nextLine();
-                String store = "";
-                if (buyer == 2) {
-                    System.out.println("What store do you represent? ");
-                    store = s.nextLine();
+                while (!goPass) {
+                    if (password.contains(",")) {
+                        System.out.println("Invalid password! ");
+                        System.out.println("Please enter another password. ");
+                        password = s.nextLine();
+                    }
+                    else
+                        goPass = true;
                 }
 
-                System.out.println("Account created successfully! ");
-                if (buyer == 1)
+                String store = "";
+                String stores = "";
+                if (buyer == 2) {
+                    System.out.println("What store(s) do you represent? " +
+                            "If multiple, please enter them separated by commas.");
+                    store = s.nextLine();
+                    for (char i : store.toCharArray()) {
+                        if (i == ',')
+                            stores += ";";
+                        else
+                            stores += i;
+                    }
+                }
+                pw.println();
+                if (buyer == 1) {
                     pw.write(username + "," + password + ",buyer");
-                if (buyer == 2)
-                    pw.write(username + "," + password + ",seller," + store);
+                    pwBuyer.println();
+                    pwBuyer.write(username + ";" + 0);
+                    pwBuyer.flush();
+                }
+                else if (buyer == 2) {
+                    pw.write(username + "," + password + ",seller," + stores);
+                    pwSeller.println();
+                    pwSeller.write(username + "; stores: " + stores + ", " + 0);
+                    pwSeller.flush();
+                }
                 pw.flush();
+                System.out.println("Account created successfully! ");
             }
         } catch (Exception e) {
             System.out.println("Something went wrong. Please try again. ");
@@ -120,8 +163,8 @@ public class IntroSequences {
     }
 
     public Object[] verify(String test) {
-        Buyer b = new Buyer("src/SampleDatabase.txt");
-        Seller se = new Seller("src/SampleDatabase.txt");
+        Buyer b = new Buyer("account_list.txt");
+        Seller se = new Seller("account_list.txt");
         ArrayList<String> takenLines = b.findBuyers();
         takenLines.addAll(se.findSellers());
         for (String i : takenLines) {
