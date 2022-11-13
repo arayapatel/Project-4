@@ -2,4 +2,3 @@ Seller1; stores: 4
 Seller2; stores: 5
 Seller3; stores: 6
 Seller4; stores: 7
-SellerFrThisTime; stores: flower;costs;coats, 0

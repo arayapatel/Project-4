@@ -14,3 +14,7 @@ arapat8;0
 arapat9;0
 arapat10;0
 arapat11;0
+arapat12;0
+arapat13;0
+arapat15;0
+arapat16;0

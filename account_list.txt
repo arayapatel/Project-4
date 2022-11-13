@@ -13,3 +13,6 @@ arapat9,answer67,buyer
 arapat10,answer67,buyer
 arapat11,answer67,buyer
 arapat12,answer67,buyer
+arapat13,answer67,buyer
+arapat15,answer67,buyer
+arapat16,answer67,buyer
