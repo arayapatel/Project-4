@@ -62,7 +62,7 @@ public class BuyerDashboard {
     ArrayList<Integer> totalMess = new ArrayList<Integer>();
     public void totalMessages() {
         try {
-            BufferedReader bfr = new BufferedReader(new FileReader("src/Seller.txt"));
+            BufferedReader bfr = new BufferedReader(new FileReader("Seller.txt"));
             String line = bfr.readLine();
             while (line != null) {
                 fileContents.add(line);

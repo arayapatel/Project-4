@@ -1,0 +1,32 @@
+Buyer1; totalMessages
+Buyer2; totalMessages
+Buyer3; totalMessages
+Buyer4; totalMessages
+SellerMan;0
+arapat20;0
+arapat21;0
+arapat22;0
+arapat24;0
+arapat25;0
+arapat26;0
+arapat31;0
+arapat32;0
+arapat1; 0
+arapat2; 0
+arapat3; 0
+<<<<<<< HEAD
+arapat5; 0
+arapat6; 0
+arapat7; 0
+arapat8; 0
+arapat34; 0
+arapat35; 0
+arapat35; 0
+arapat54; 0
+arapat36; 0
+arapat60; 0
+arapat59; 0
+arapat50; 0
+=======
+buyingBuyer; 0
+>>>>>>> 0e78a88508283e7ca8919ee8bdfc59dfb558591e

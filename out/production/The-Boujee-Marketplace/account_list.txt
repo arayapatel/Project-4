@@ -48,6 +48,10 @@ arapat54,answer67,buyer
 arapat36,answer67,buyer
 arapat60,answer67,buyer
 arapat59,asnwer67,buyer
+arapat50,answer67,buyer
 =======
 MtStHelens,boom,seller,volcanoes,ash,death,destruction,lava,magma,rocks
+buyingBuyer,buyingPwd,buyer
 >>>>>>> 0e78a88508283e7ca8919ee8bdfc59dfb558591e
+
+arapat400,answer67,buyer
