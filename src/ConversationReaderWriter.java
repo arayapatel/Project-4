@@ -158,7 +158,7 @@ public class ConversationReaderWriter {
             pw.close();
             return didChange;
         } catch (Exception e) {
-            e.printStackTrace();
+            //e.printStackTrace();
             return false;
         }
     }
@@ -261,7 +261,7 @@ public class ConversationReaderWriter {
             }
             return true;
         } catch (Exception e) {
-            e.printStackTrace();
+            //e.printStackTrace();
             return false;
         }
     }
@@ -351,7 +351,7 @@ public class ConversationReaderWriter {
             pw.close();
             return true;
         } catch (Exception e) {
-            e.printStackTrace();
+            //e.printStackTrace();
             return false;
         }
     }
@@ -444,7 +444,7 @@ public class ConversationReaderWriter {
             }
             return true;
         } catch (Exception e) {
-            e.printStackTrace();
+            //e.printStackTrace();
             return false;
         }
     }
@@ -537,7 +537,7 @@ public class ConversationReaderWriter {
             }
             return true;
         } catch (Exception e) {
-            e.printStackTrace();
+            //e.printStackTrace();
             return false;
         }
     }
@@ -546,53 +546,4 @@ public class ConversationReaderWriter {
         return messages;
     }
 
-
-
-
-
-
-
-    public static void main(String[] args) {
-        ConversationReaderWriter c1 = new ConversationReaderWriter("SampleBuyer", "SampleSeller", "store1");
-        String[] recievedMessages = c1.getMessages();
-        if (recievedMessages != null) {
-            for (int i = 0; i < recievedMessages.length; i++) {
-                System.out.println(recievedMessages[i]);
-            }
-        } else {
-            System.out.println("null");
-        }
-        //c1.deleteMessage(1);
-
-        /*recievedMessages = c1.readMessages();
-        if (recievedMessages != null) {
-            for (int i = 0; i < recievedMessages.length; i++) {
-                System.out.println(recievedMessages[i]);
-            }
-        } else {
-            System.out.println("null");
-        }*/
-        /*System.out.println(c1.invisibleMessage("SNEEKY"));
-        ConversationReaderWriter c2 = new ConversationReaderWriter("SampleSeller", "SampleBuyer", "general");
-        String[] recievedMessages = c2.getMessages();
-        if (recievedMessages != null) {
-            for (int i = 0; i < recievedMessages.length; i++) {
-                System.out.println(recievedMessages[i]);
-            }
-        } else {
-            System.out.println("null");
-        }*/
-
-        /*c1.editMessage(2,"Attempt4");
-        recievedMessages = c1.readMessages();
-        if (recievedMessages != null) {
-            for (int i = 0; i < recievedMessages.length; i++) {
-                System.out.println(recievedMessages[i]);
-            }
-        } else {
-            System.out.println("null");
-        }*/
-        //c1.invisibleMessage("Attempt3");
-
-    }
 }
