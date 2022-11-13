@@ -3,8 +3,6 @@ Buyer2; totalMessages
 Buyer3; totalMessages
 Buyer4; totalMessages
 SellerMan;0
-<<<<<<< HEAD
-
 arapat20;0
 arapat21;0
 arapat22;0
@@ -13,9 +11,7 @@ arapat25;0
 arapat26;0
 arapat31;0
 arapat32;0
-=======
->>>>>>> b52523442be7d1c1bbeb3eea1e9d4601ee869af0
-
 arapat1; 0
 arapat2; 0
 arapat3; 0
+buyingBuyer; 0
