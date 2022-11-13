@@ -1,10 +1,13 @@
 package src;
 
+import com.sun.jdi.InvalidTypeException;
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class IntroSequences {
@@ -157,6 +160,8 @@ public class IntroSequences {
                 pw.flush();
                 System.out.println("Account created successfully! ");
             }
+        } catch (InputMismatchException ime) {
+            new IntroSequences();
         } catch (Exception e) {
             System.out.println("Something went wrong. Please try again. ");
         }
