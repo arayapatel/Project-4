@@ -39,21 +39,22 @@ public class BuyerDashboard {
 
         ArrayList<String> fileContents = new ArrayList<String>();
         try {
-            BufferedReader bfr = new BufferedReader(new FileReader(new File("Seller.txt")));
+            BufferedReader bfr = new BufferedReader(new FileReader("src/Seller.txt"));
             String line = bfr.readLine();
             while (line != null) {
                 fileContents.add(line);
                 line = bfr.readLine();
             }
             bfr.close();
+            for (int i = 0; i < fileContents.size(); i++) {
+                int startIndex = fileContents.get(i).indexOf(";");
+                int endIndex = fileContents.get(i).indexOf(":");
+                stores.add(unsortedSellers.get(i).substring(startIndex + 2, endIndex));
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        for (int i = 0; i < fileContents.size(); i++) {
-            int startIndex = fileContents.get(i).indexOf(";");
-            int endIndex = fileContents.get(i).indexOf(":");
-            stores.add(unsortedSellers.get(i).substring(startIndex + 2, endIndex));
-        }
+
         //return null;
     }
 
@@ -61,22 +62,20 @@ public class BuyerDashboard {
     ArrayList<Integer> totalMess = new ArrayList<Integer>();
     public void totalMessages() {
         try {
-            BufferedReader bfr = new BufferedReader(new FileReader(new File("Seller.txt")));
+            BufferedReader bfr = new BufferedReader(new FileReader("src/Seller.txt"));
             String line = bfr.readLine();
             while (line != null) {
                 unsortedSellers.add(line);
                 line = bfr.readLine();
             }
             bfr.close();
+            for (int i = 0; i < unsortedSellers.size(); i++) {
+                int index = unsortedSellers.get(i).indexOf(":");
+                totalMess.add(Integer.parseInt(unsortedSellers.get(i).substring(index + 2)));
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-        for (int i = 0; i < unsortedSellers.size(); i++) {
-            int index = unsortedSellers.get(i).indexOf(":");
-            totalMess.add(Integer.parseInt(unsortedSellers.get(i).substring(index + 1)));
-        }
-
     }
     ArrayList<String> sortedSellers = new ArrayList<String>();
     ArrayList<String> sortedStores = new ArrayList<String>();
@@ -122,11 +121,11 @@ public class BuyerDashboard {
 
     }
     public void startMessage() {
-        String print = String.format("Welcome to the Dashboard!\nChoose what you would like to do\n\n" +
-                                     "1.) View/Send to stores" +
-                                     "2.) Search for a seller" +
-                                     "3.) Add a new censor" +
-                                     "4.) Export" +
+        String print = String.format("Welcome to the Buyer Dashboard!\nChoose what you would like to do\n\n" +
+                                     "1.) View/Send to stores\n" +
+                                     "2.) Search for a seller\n" +
+                                     "3.) Add a new censor\n" +
+                                     "4.) Export\n" +
                                      "5.) Exit\n");
         System.out.println(print);
         response = scan.nextInt();
@@ -134,7 +133,8 @@ public class BuyerDashboard {
 
 
     public void forward() {
-        startMessage();
+        //startMessage();
+        totalMessages();
         if (response == 1) {
             ArrayList<String> allStores = new ArrayList<String>();
             readStores();
@@ -177,7 +177,7 @@ public class BuyerDashboard {
                         indexOfSeller = i;
                     }
                 }
-                if (found) {
+                if (found == false) {
                     System.out.println("The seller was found");
                 } else {
                     System.out.println("Seller was not found, try again.");
@@ -191,8 +191,8 @@ public class BuyerDashboard {
             }
         }
         if (response == 3) {
-            System.out.println("What censors would you like to add?");
-            String censors = scan.nextLine();
+            System.out.println("What censors would you like to add? (Separated by comma)");
+            String censors = scan.next();
         }
         if (response == 4) {
             //./csv();
