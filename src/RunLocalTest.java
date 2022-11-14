@@ -1,6 +1,6 @@
 package src;
 
-import org.junit.Test;
+import org.junit .Test;
 import org.junit.After;
 import java.lang.reflect.Field;
 import org.junit.Assert;

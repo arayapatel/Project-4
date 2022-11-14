@@ -1,7 +1,5 @@
-Buyer1; totalMessages
-Buyer2; totalMessages
-Buyer3; totalMessages
-Buyer4; totalMessages
+<<<<<<< HEAD
+<<<<<<< HEAD
 SellerMan;0
 arapat20;0
 arapat21;0
@@ -16,3 +14,14 @@ arapat2; 0
 arapat3; 0
 buyingBuyer; 0
 Diner; 0
+shoesshoes; 0
+arapat200; 0
+arapat340; 0
+=======
+
+arapat400; 0
+>>>>>>> parent of 5ed046b (updates)
+=======
+
+arapat400; 0
+>>>>>>> parent of 5ed046b (updates)

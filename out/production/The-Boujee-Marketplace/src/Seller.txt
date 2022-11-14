@@ -1,0 +1,8 @@
+Seller1; stores: 4
+Seller2; stores: 5
+Seller3; stores: 6
+Seller4; stores: 7
+MtStHelens; volcanoes,ash,death,destruction,lava,magma,rocks: 0
+gogog; happiness, going: 0
+sellingjimbo; sandwhiches: 0
+gmakgaml; shoes,boots,boats: 0
