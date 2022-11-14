@@ -1,5 +1,8 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 24c66d40d378e1adbbc30fa2ee1830167a93f32a
 SellerMan;0
 arapat20;0
 arapat21;0
@@ -21,7 +24,10 @@ arapat340; 0
 
 arapat400; 0
 >>>>>>> parent of 5ed046b (updates)
+<<<<<<< HEAD
 =======
 
 arapat400; 0
 >>>>>>> parent of 5ed046b (updates)
+=======
+>>>>>>> 24c66d40d378e1adbbc30fa2ee1830167a93f32a

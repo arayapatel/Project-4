@@ -12,9 +12,9 @@ arapat2; 0
 arapat3; 0
 buyingBuyer; 0
 Diner; 0
-<<<<<<< HEAD
 shoesshoes; 0
 arapat200; 0
 arapat340; 0
-=======
->>>>>>> parent of 5ed046b (updates)
+shoesshoes; 0
+arapat200; 0
+arapat340; 0

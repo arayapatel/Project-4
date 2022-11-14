@@ -54,6 +54,9 @@ MtStHelens,boom,seller,volcanoes,ash,death,destruction,lava,magma,rocks
 buyingBuyer,buyingPwd,buyer
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 24c66d40d378e1adbbc30fa2ee1830167a93f32a
 gogog,gogogogo,seller,happiness, going
 Diner,food,buyer
 sellingjimbo,jim,seller,sandwhiches
@@ -66,8 +69,11 @@ arapat340,answer67,buyer
 
 arapat400,answer67,buyer
 >>>>>>> parent of 5ed046b (updates)
+<<<<<<< HEAD
 =======
 >>>>>>> 0e78a88508283e7ca8919ee8bdfc59dfb558591e
 
 arapat400,answer67,buyer
 >>>>>>> parent of 5ed046b (updates)
+=======
+>>>>>>> 24c66d40d378e1adbbc30fa2ee1830167a93f32a
