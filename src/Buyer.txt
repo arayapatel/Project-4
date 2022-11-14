@@ -1,7 +1,3 @@
-Buyer1; totalMessages
-Buyer2; totalMessages
-Buyer3; totalMessages
-Buyer4; totalMessages
 SellerMan;0
 arapat20;0
 arapat21;0

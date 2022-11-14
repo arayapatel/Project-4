@@ -33,9 +33,6 @@ John,WOooo,buyer
 MtStHelens,boom,seller,volcanoes,ash,death,destruction,lava,magma,rocks
 buyingBuyer,buyingPwd,buyer
 gogog,gogogogo,seller,happiness, going
-<<<<<<< HEAD
 Diner,food,buyer
 arapat200,answer67,buyer
-=======
-Diner,food,buyer
->>>>>>> ca6b457597fc61a68152b239a0af424ece3fc9c9
+arapat340,answer67,buyer
