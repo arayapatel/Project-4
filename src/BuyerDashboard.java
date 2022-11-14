@@ -214,6 +214,7 @@ public class BuyerDashboard {
         //startMessage();
         //totalMessages();
         ArrayList<String> sortedSellers = sortSellers();
+        String[] storesInOrder = messagesSentToStore();
         if (response == 1) {
             ArrayList<String> allStores = new ArrayList<String>();
            //readStores();
@@ -249,11 +250,22 @@ public class BuyerDashboard {
             String seller = "";
             while (!found) {
                 System.out.println("Which seller are you looking for?\n");
+                ArrayList<String> fileContents = new ArrayList<String>();
                 seller = scan.next();
-                for (int i = 0; i < sortedSellers.size(); i++) {
-                    if (sortedSellers.get(i).equals(seller)) {
+                try {
+                    BufferedReader bfr = new BufferedReader(new FileReader("src/Seller.txt"));
+                    String line = bfr.readLine();
+                    while (line != null) {
+                        fileContents.add(line);
+                        line = bfr.readLine();
+                    }
+                    bfr.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                for (int i = 0; i < fileContents.size(); i++) {
+                    if (fileContents.get(i).contains(seller)) {
                         found = true;
-                        indexOfSeller = i;
                     }
                 }
                 if (found == true) {
