@@ -46,7 +46,7 @@ public class ConversationReaderWriter {
                         messages[messages.length - 1] = messages[messages.length - 1].substring(0, messages[messages.length - 1].length() - 1);
                         if (this.checkInvisibleMessage(i)) {
                             for (int j = 0; j < messages.length; j++) {
-                                String[] linePieces = messages[j].split(";", 3);
+                                String[] linePieces = messages[j].split(";", 4);
                                 if (linePieces[1].charAt(0) == '/') {
                                     linePieces[1] = linePieces[1].substring(1);
                                     line = "";
@@ -65,7 +65,7 @@ public class ConversationReaderWriter {
                     String[] tempFinalMessages = new String[messages.length];
                     int placement = 0;
                     for (int j = 0; j < messages.length; j++) {
-                        if (!messages[j].split(";", 3)[1].equals("deleted")) {
+                        if (!messages[j].split(";", 4)[1].equals("deleted")) {
                             tempFinalMessages[placement] = messages[j];
                             placement++;
                         }
@@ -106,7 +106,7 @@ public class ConversationReaderWriter {
             String[] messages = tempFile.get(tempFile.size() - 1).split(", ")[3].split("],\\[");
             String changingLine = "";
             for (int i = 0; i < messages.length; i++) {
-                String[] splitMessage = messages[i].split(";", 3);
+                String[] splitMessage = messages[i].split(";", 4);
                 if (!(splitMessage[1].charAt(0) == '/')) {
                     if (changingLine.length() == 0) {
                         changingLine += "0, " + tempFile.get(tempFile.size() - 1).split(", ")[1] + ", " + tempFile.get(tempFile.size() - 1).split(", ")[2] + ", ";
@@ -114,7 +114,7 @@ public class ConversationReaderWriter {
                     String tempLine = tempFile.get(tempFile.size() - 1).split(", ")[3];
                     String[] splitTempLine = tempLine.substring(0, tempLine.length() - 1).split("],\\[");
                     for (int j = 0; j < splitTempLine.length; j++) {
-                        String[] individualMessages = splitTempLine[j].split(";", 3);
+                        String[] individualMessages = splitTempLine[j].split(";", 4);
                         if (individualMessages[1].equals("false")) {
                             individualMessages[1] = "true";
                             splitTempLine[j] = "";
@@ -409,7 +409,7 @@ public class ConversationReaderWriter {
                             makeNewLine = makeNewLine.substring(0, makeNewLine.length() - 1);
                         }
                         String linePieceToChange = messagesPart[messageToChange];
-                        String[] changingLine = linePieceToChange.split(";", 3);
+                        String[] changingLine = linePieceToChange.split(";", 4);
                         changingLine[3] = newMessage;
                         for (int j = 0; j < changingLine.length; j++) {
                             if (j > 0) {
@@ -502,7 +502,7 @@ public class ConversationReaderWriter {
                             makeNewLine = makeNewLine.substring(0, makeNewLine.length() - 1);
                         }
                         String linePieceToChange = messagesPart[messageToDelete];
-                        String[] changingLine = linePieceToChange.split(";", 3);
+                        String[] changingLine = linePieceToChange.split(";", 4);
                         changingLine[1] = "deleted";
                         for (int j = 0; j < changingLine.length; j++) {
                             if (j > 0) {

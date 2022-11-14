@@ -1,7 +1,3 @@
-Buyer1; totalMessages
-Buyer2; totalMessages
-Buyer3; totalMessages
-Buyer4; totalMessages
 SellerMan;0
 arapat20;0
 arapat21;0
@@ -17,3 +13,5 @@ arapat3; 0
 buyingBuyer; 0
 Diner; 0
 shoesshoes; 0
+arapat200; 0
+arapat340; 0

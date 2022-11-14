@@ -36,3 +36,6 @@ gogog,gogogogo,seller,happiness, going
 Diner,food,buyer
 sellingjimbo,jim,seller,sandwhiches
 gmakgaml,gogogo,seller,shoes,boots,boats
+shoesshoes,password,buyer
+arapat200,answer67,buyer
+arapat340,answer67,buyer
