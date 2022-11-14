@@ -34,3 +34,5 @@ MtStHelens,boom,seller,volcanoes,ash,death,destruction,lava,magma,rocks
 buyingBuyer,buyingPwd,buyer
 gogog,gogogogo,seller,happiness, going
 Diner,food,buyer
+arapat200,answer67,buyer
+arapat340,answer67,buyer

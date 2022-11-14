@@ -30,28 +30,8 @@ arapat31,answer67,buyer
 arapat32,answer67,buyer
 BuyingMan,password,seller,ipads;laptops;phones;apple
 John,WOooo,buyer
-<<<<<<< HEAD
->>>>>>> b52523442be7d1c1bbeb3eea1e9d4601ee869af0
-
-arapat1,answer67,buyer
-arapat2,answer67,buyer
-arapat3,answer67,buyer
-arapat100,answer67,seller,amazon, facebook
-arapat5,answer67,buyer
-arapat6,answer67,buyer
-arapat7,answer67,buyer
-arapat8,answer67,buyer
-arapat34,answer67,buyer
-arapat35,answer67,buyer
-arapat35,answer67,buyer
-arapat54,answer67,buyer
-arapat36,answer67,buyer
-arapat60,answer67,buyer
-arapat59,asnwer67,buyer
-arapat50,answer67,buyer
-=======
 MtStHelens,boom,seller,volcanoes,ash,death,destruction,lava,magma,rocks
 buyingBuyer,buyingPwd,buyer
->>>>>>> 0e78a88508283e7ca8919ee8bdfc59dfb558591e
-
-arapat400,answer67,buyer
+gogog,gogogogo,seller,happiness, going
+Diner,food,buyer
+arapat200,answer67,buyer
