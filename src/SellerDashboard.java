@@ -34,7 +34,7 @@ public class SellerDashboard {
     ArrayList<String> fileContents = new ArrayList<String>();
     public void readBuyers() {
         try {
-            BufferedReader bfr = new BufferedReader(new FileReader(new File("Buyer.txt")));
+            BufferedReader bfr = new BufferedReader(new FileReader(("src/Buyer.txt")));
             String line = bfr.readLine();
             while (line != null) {
                 fileContents.add(line);
@@ -55,7 +55,7 @@ public class SellerDashboard {
     public void totalMessages() {
         ArrayList<String> fileContents = new ArrayList<String>();
         try {
-            BufferedReader bfr = new BufferedReader(new FileReader(new File("Buyer.txt")));
+            BufferedReader bfr = new BufferedReader(new FileReader(("src/Buyer.txt")));
             String line = bfr.readLine();
             while (line != null) {
                 fileContents.add(line);
